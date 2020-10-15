@@ -1,4 +1,5 @@
 import 'package:ecomm_adhoc/home_screen/cart.dart';
+import 'package:ecomm_adhoc/home_screen/home.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -462,8 +463,25 @@ class _profile_screenState extends State<profile_screen> {
                 allowDrawingOutsideViewBox: true,
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushNamed('home');
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => home()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Wallet'),
+              leading: SvgPicture.asset(
+                'Assets/icons/wallet.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => wallet()),
+              );
               },
             ),
             ListTile(
@@ -500,21 +518,6 @@ class _profile_screenState extends State<profile_screen> {
               title: new Text('My Account'),
               leading: SvgPicture.asset(
                 'Assets/icons/man-user.svg',
-                height: 20.0,
-                width: 20.0,
-                allowDrawingOutsideViewBox: true,
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => profile()),
-                );
-              },
-            ),
-            ListTile(
-              title: new Text('My Subscription'),
-              leading: SvgPicture.asset(
-                'Assets/icons/renew.svg',
                 height: 20.0,
                 width: 20.0,
                 allowDrawingOutsideViewBox: true,
@@ -611,15 +614,20 @@ class _profile_screenState extends State<profile_screen> {
                               SizedBox(height: 2.8,),
                               Container(
                                 padding: const EdgeInsets.only(left: 25.0),
-                                child: Text('12345678@nomail.adhoc.com', style: TextStyle(color: Color(0xFF55BEED), fontSize: 11)),
+                                child: Text('12345678@nomail.adhoc.com', style: TextStyle(color: Color(0xFF66BBE0), fontWeight: FontWeight.w500, fontSize: 11)),
                               ),
                               SizedBox(height: 2.8,),
                               Container(
                                 padding: const EdgeInsets.only(right: 36.0),
-                                child: Text('+91 1234567890', textAlign: TextAlign.left, style: TextStyle(color: Color(0xFF55BEED), fontSize: 11)),
+                                child: Text('+91 1234567890', textAlign: TextAlign.left, style: TextStyle(color: Color(0xFF66BBE0), fontWeight: FontWeight.w500, fontSize: 11)),
                               ),  
                             ],
-                          ),   
+                          ),
+                          Spacer(flex: 10),
+                          Container(
+                            alignment: Alignment.topRight,
+                            child: Icon(Icons.mode_edit, color: Colors.white)
+                          )   
                         ],
                       ),
                     ),
@@ -645,6 +653,10 @@ class _profile_screenState extends State<profile_screen> {
                               textColor: Colors.black,
                               splashColor: Colors.white,
                               onPressed: () {
+                               Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => payment()),
+                              );
                               
                             },
                           ),
@@ -665,7 +677,10 @@ class _profile_screenState extends State<profile_screen> {
                               textColor: Colors.black,
                               splashColor: Colors.white,
                               onPressed: () {
-                              
+                               Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => order()),
+                              );
                             },
                           ),
                         ),
@@ -688,7 +703,10 @@ class _profile_screenState extends State<profile_screen> {
                         textColor: Colors.black,
                         splashColor: Colors.white,
                         onPressed: () {
-                             
+                          Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => delivery_add()),
+                          );    
                         },
                       ),
                     ),    
@@ -788,6 +806,1032 @@ class _profile_screenState extends State<profile_screen> {
               padding: const EdgeInsets.all(12.0),
               child: Text('Due to current situation we are witnessing a huge surge in calls/e-mails. There may be a delay in response from our side. kindly bear with us    ', style: TextStyle(fontSize: 12.9, fontWeight: FontWeight.bold, color: Colors.black))
             ),                       
+          ]
+        )
+      ),
+    );
+  }
+}
+
+class payment extends StatefulWidget {
+  @override
+  _paymentState createState() => _paymentState();
+}
+
+class _paymentState extends State<payment> {
+  GlobalKey<ScaffoldState> drawerKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F5F5),
+      key: drawerKey,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Ecommerce",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size(50, 50),
+          child: Container(
+            height: 42.8,
+            margin: const EdgeInsets.all(7.8),
+            child: TextField(
+              autocorrect: true,
+              decoration: InputDecoration(
+                  hintText: 'Search essentials, groceries and more ...',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                  filled: true,
+                  fillColor: Colors.white,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.blue, width: 1.2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(color: Colors.black, width: 1.2))),
+            ),
+          ),
+        ),
+        backgroundColor: Color(0xFF008ECC),
+        brightness: Brightness.light,
+        elevation: 0,
+        actionsIconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: Colors.white),
+        leading: IconButton(
+          onPressed: () {
+            drawerKey.currentState.openDrawer();
+          },
+          icon: Icon(
+            EvaIcons.menu2Outline,
+            color: Colors.white,
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => profile_screen()),
+              );
+            },
+            icon: Icon(
+              EvaIcons.person,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => cart()),
+              );
+            },
+            icon: Icon(
+              EvaIcons.shoppingCart,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+      drawerEdgeDragWidth: 0,
+      drawer: new Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                'Username',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('Assets/images/profile.jfif')
+              ),
+              accountEmail: null,
+            ),
+            ListTile(
+              title: new Text('Home'),
+              leading: SvgPicture.asset(
+                'Assets/icons/home.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => home()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Wallet'),
+              leading: SvgPicture.asset(
+                'Assets/icons/wallet.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => wallet()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Shop by Category'),
+              leading: SvgPicture.asset(
+                'Assets/icons/categories.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile()),
+                );
+              },
+            ),
+            ListTile(
+              title: new Text('My Orders'),
+              leading: SvgPicture.asset(
+                'Assets/icons/checklist.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => order()),
+                );
+              },
+            ),
+            ListTile(
+              title: new Text('My Account'),
+              leading: SvgPicture.asset(
+                'Assets/icons/man-user.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile_screen()),
+                );
+              },
+            ),
+            
+            ExpansionTile(
+              title: new Text('Help and Setting'),
+              children: [
+                ListTile(
+                  title: new Text('Customer Service'),
+                  leading: SvgPicture.asset(
+                    'Assets/icons/support.svg',
+                    height: 20.0,
+                    width: 20.0,
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => profile()),
+                    );
+                  },
+                ),
+              ],
+            ),
+            ListTile(
+              title: new Text('Sign In'),
+              leading: SvgPicture.asset(
+                'Assets/icons/in.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/restaurant_screen');
+              },
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 28.8,
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(5.6),
+              color: Color(0xFFF8F8F8),
+              child: Row(
+                children: [
+                  Icon(Icons.location_on, color: Color(0xFF7A7A7A),),
+                  SizedBox(width: 4.8),
+                  Text('Deliver to 641024', style: TextStyle(color: Color(0xFF7A7A7A), fontSize: 12.0,),),
+                ],
+              )
+            ),
+            Container(
+              color: Colors.white,
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(12.6),
+              child: Text('Payment Methods', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold))
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(12.6),
+              child: Text('SAVED CARDS')
+            ),
+            Container(
+              color: Colors.white,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(10.0),
+              child: Text('No Card details saved by you', style: TextStyle(color: Colors.black, fontSize: 12),)
+            )
+
+          ]
+        )
+      ),
+    );
+  }
+}
+
+class delivery_add extends StatefulWidget {
+  @override
+  _delivery_addState createState() => _delivery_addState();
+}
+
+class _delivery_addState extends State<delivery_add> {
+  GlobalKey<ScaffoldState> drawerKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F5F5),
+      key: drawerKey,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Ecommerce",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size(50, 50),
+          child: Container(
+            height: 42.8,
+            margin: const EdgeInsets.all(7.8),
+            child: TextField(
+              autocorrect: true,
+              decoration: InputDecoration(
+                  hintText: 'Search essentials, groceries and more ...',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                  filled: true,
+                  fillColor: Colors.white,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.blue, width: 1.2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(color: Colors.black, width: 1.2))),
+            ),
+          ),
+        ),
+        backgroundColor: Color(0xFF008ECC),
+        brightness: Brightness.light,
+        elevation: 0,
+        actionsIconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: Colors.white),
+        leading: IconButton(
+          onPressed: () {
+            drawerKey.currentState.openDrawer();
+          },
+          icon: Icon(
+            EvaIcons.menu2Outline,
+            color: Colors.white,
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => profile_screen()),
+              );
+            },
+            icon: Icon(
+              EvaIcons.person,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => cart()),
+              );
+            },
+            icon: Icon(
+              EvaIcons.shoppingCart,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+      drawerEdgeDragWidth: 0,
+      drawer: new Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                'Username',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('Assets/images/profile.jfif')
+              ),
+              accountEmail: null,
+            ),
+            ListTile(
+              title: new Text('Home'),
+              leading: SvgPicture.asset(
+                'Assets/icons/home.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => home()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Wallet'),
+              leading: SvgPicture.asset(
+                'Assets/icons/wallet.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => wallet()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Shop by Category'),
+              leading: SvgPicture.asset(
+                'Assets/icons/categories.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile()),
+                );
+              },
+            ),
+            ListTile(
+              title: new Text('My Orders'),
+              leading: SvgPicture.asset(
+                'Assets/icons/checklist.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => order()),
+                );
+              },
+            ),
+            ListTile(
+              title: new Text('My Account'),
+              leading: SvgPicture.asset(
+                'Assets/icons/man-user.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile_screen()),
+                );
+              },
+            ),
+            
+            ExpansionTile(
+              title: new Text('Help and Setting'),
+              children: [
+                ListTile(
+                  title: new Text('Customer Service'),
+                  leading: SvgPicture.asset(
+                    'Assets/icons/support.svg',
+                    height: 20.0,
+                    width: 20.0,
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => profile()),
+                    );
+                  },
+                ),
+              ],
+            ),
+            ListTile(
+              title: new Text('Sign In'),
+              leading: SvgPicture.asset(
+                'Assets/icons/in.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/restaurant_screen');
+              },
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 28.8,
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(5.6),
+              color: Color(0xFFF8F8F8),
+              child: Row(
+                children: [
+                  Icon(Icons.location_on, color: Color(0xFF7A7A7A),),
+                  SizedBox(width: 4.8),
+                  Text('Deliver to 641024', style: TextStyle(color: Color(0xFF7A7A7A), fontSize: 12.0,),),
+                ],
+              )
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(12.6),
+              child: Text('Delivery Address', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold))
+            ),
+            Container(
+              color: Colors.white,
+              margin: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(10.0),
+              child: TextField(
+              autocorrect: true,
+              decoration: InputDecoration(
+                  hintText: 'Add New Address',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                  filled: true,
+                  fillColor: Colors.white,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(color: Colors.black, width: 1.2))),
+            ),
+            )
+
+          ]
+        )
+      ),
+    );
+  }
+}
+
+class order extends StatefulWidget {
+  @override
+  _orderState createState() => _orderState();
+}
+
+class _orderState extends State<order> {
+  GlobalKey<ScaffoldState> drawerKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F5F5),
+      key: drawerKey,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Ecommerce",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size(50, 50),
+          child: Container(
+            height: 42.8,
+            margin: const EdgeInsets.all(7.8),
+            child: TextField(
+              autocorrect: true,
+              decoration: InputDecoration(
+                  hintText: 'Search essentials, groceries and more ...',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                  filled: true,
+                  fillColor: Colors.white,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.blue, width: 1.2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(color: Colors.black, width: 1.2))),
+            ),
+          ),
+        ),
+        backgroundColor: Color(0xFF008ECC),
+        brightness: Brightness.light,
+        elevation: 0,
+        actionsIconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: Colors.white),
+        leading: IconButton(
+          onPressed: () {
+            drawerKey.currentState.openDrawer();
+          },
+          icon: Icon(
+            EvaIcons.menu2Outline,
+            color: Colors.white,
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => profile_screen()),
+              );
+            },
+            icon: Icon(
+              EvaIcons.person,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => cart()),
+              );
+            },
+            icon: Icon(
+              EvaIcons.shoppingCart,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+      drawerEdgeDragWidth: 0,
+      drawer: new Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                'Username',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('Assets/images/profile.jfif')
+              ),
+              accountEmail: null,
+            ),
+            ListTile(
+              title: new Text('Home'),
+              leading: SvgPicture.asset(
+                'Assets/icons/home.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => home()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Wallet'),
+              leading: SvgPicture.asset(
+                'Assets/icons/wallet.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => wallet()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Shop by Category'),
+              leading: SvgPicture.asset(
+                'Assets/icons/categories.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile()),
+                );
+              },
+            ),
+            ListTile(
+              title: new Text('My Orders'),
+              leading: SvgPicture.asset(
+                'Assets/icons/checklist.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => order()),
+                );
+              },
+            ),
+            ListTile(
+              title: new Text('My Account'),
+              leading: SvgPicture.asset(
+                'Assets/icons/man-user.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile_screen()),
+                );
+              },
+            ),
+            ExpansionTile(
+              title: new Text('Help and Setting'),
+              children: [
+                ListTile(
+                  title: new Text('Customer Service'),
+                  leading: SvgPicture.asset(
+                    'Assets/icons/support.svg',
+                    height: 20.0,
+                    width: 20.0,
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => profile()),
+                    );
+                  },
+                ),
+              ],
+            ),
+            ListTile(
+              title: new Text('Sign In'),
+              leading: SvgPicture.asset(
+                'Assets/icons/in.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/restaurant_screen');
+              },
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 28.8,
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(5.6),
+              color: Color(0xFFF8F8F8),
+              child: Row(
+                children: [
+                  Icon(Icons.location_on, color: Color(0xFF7A7A7A),),
+                  SizedBox(width: 4.8),
+                  Text('Deliver to 641024', style: TextStyle(color: Color(0xFF7A7A7A), fontSize: 12.0,),),
+                ],
+              )
+            ),
+            Container(
+              color: Colors.white,
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(12.6),
+              child: Text('Order placed? It might take few mins to reflect here', style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold))
+            ),
+            
+
+          ]
+        )
+      ),
+    );
+  }
+}
+
+class wallet extends StatefulWidget {
+  @override
+  _walletState createState() => _walletState();
+}
+
+class _walletState extends State<wallet> {
+  GlobalKey<ScaffoldState> drawerKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F5F5),
+      key: drawerKey,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Ecommerce",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size(50, 50),
+          child: Container(
+            height: 42.8,
+            margin: const EdgeInsets.all(7.8),
+            child: TextField(
+              autocorrect: true,
+              decoration: InputDecoration(
+                  hintText: 'Search essentials, groceries and more ...',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                  filled: true,
+                  fillColor: Colors.white,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.blue, width: 1.2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(color: Colors.black, width: 1.2))),
+            ),
+          ),
+        ),
+        backgroundColor: Color(0xFF008ECC),
+        brightness: Brightness.light,
+        elevation: 0,
+        actionsIconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: Colors.white),
+        leading: IconButton(
+          onPressed: () {
+            drawerKey.currentState.openDrawer();
+          },
+          icon: Icon(
+            EvaIcons.menu2Outline,
+            color: Colors.white,
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => profile_screen()),
+              );
+            },
+            icon: Icon(
+              EvaIcons.person,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => cart()),
+              );
+            },
+            icon: Icon(
+              EvaIcons.shoppingCart,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+      drawerEdgeDragWidth: 0,
+      drawer: new Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                'Username',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('Assets/images/profile.jfif')
+              ),
+              accountEmail: null,
+            ),
+            ListTile(
+              title: new Text('Home'),
+              leading: SvgPicture.asset(
+                'Assets/icons/home.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => home()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Wallet'),
+              leading: SvgPicture.asset(
+                'Assets/icons/wallet.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => wallet()),
+              );
+              },
+            ),
+            ListTile(
+              title: new Text('Shop by Category'),
+              leading: SvgPicture.asset(
+                'Assets/icons/categories.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile()),
+                );
+              },
+            ),
+            ListTile(
+              title: new Text('My Orders'),
+              leading: SvgPicture.asset(
+                'Assets/icons/checklist.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => order()),
+                );
+              },
+            ),
+            ListTile(
+              title: new Text('My Account'),
+              leading: SvgPicture.asset(
+                'Assets/icons/man-user.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile_screen()),
+                );
+              },
+            ),
+            
+            ExpansionTile(
+              title: new Text('Help and Setting'),
+              children: [
+                ListTile(
+                  title: new Text('Customer Service'),
+                  leading: SvgPicture.asset(
+                    'Assets/icons/support.svg',
+                    height: 20.0,
+                    width: 20.0,
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => profile()),
+                    );
+                  },
+                ),
+              ],
+            ),
+            ListTile(
+              title: new Text('Sign In'),
+              leading: SvgPicture.asset(
+                'Assets/icons/in.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/restaurant_screen');
+              },
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 28.8,
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(5.6),
+              color: Color(0xFFF8F8F8),
+              child: Row(
+                children: [
+                  Icon(Icons.location_on, color: Color(0xFF7A7A7A),),
+                  SizedBox(width: 4.8),
+                  Text('Deliver to 641024', style: TextStyle(color: Color(0xFF7A7A7A), fontSize: 12.0,),),
+                ],
+              )
+            ),
+            Container(
+              color: Colors.white,
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(12.6),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,   
+                    child: Text('Adhoc Wallet', style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold))),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text("\$0.00", style: TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold)))
+                ],
+              )
+            ),
           ]
         )
       ),

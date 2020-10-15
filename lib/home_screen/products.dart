@@ -1,3 +1,5 @@
+
+
 import 'package:ecomm_adhoc/home_screen/cart.dart';
 import 'package:ecomm_adhoc/home_screen/offers.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -592,14 +594,51 @@ class product_screen extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+            SizedBox(height: 80),
           ],
         ),   
+      ),
+      bottomSheet: Container(
+        height: 40,
+        margin: EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text('\View All Categories', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)),
+            ),
+                    
+            Container(
+              width: 150,
+              height: 40,
+              padding: const EdgeInsets.all(5.0),
+
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => cart_fill()),
+                  );
+                },
+                splashColor: Colors.blue[50],
+                color: Color(0xFF1B9AD1),
+                 child: Text(
+                  "Add to Cart",
+                   style: TextStyle(
+                   color: Colors.white,
+                   fontWeight: FontWeight.w600),
+                 ),
+                ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-   createWishListItem() {
+ createWishListItem() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 4),
       decoration:
@@ -661,21 +700,56 @@ class product_screen extends StatelessWidget {
           ),
           SizedBox(height: 2),
           Container(
-            height: 15,
+            height: 28,
+            width: 120,
             margin: EdgeInsets.all(4),
-            child: RaisedButton(
-              child: Text(
-                "ADD",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              ),
-              color: Color(0xff008ecc),
-              textColor: Colors.black,
-              splashColor: Colors.white,
-              onPressed: () { },
+              child: RaisedButton(
+                child: Container(
+                  alignment: Alignment.center,
+                    margin: const EdgeInsets.all(5.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Text(
+                              "ADD",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
+                            ),
+                          ),
+                          //Spacer(flex: 5),
+                        InkWell(
+                          child: Container(
+                            width: 28,
+                            height: 28,
+                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xFF1B9AD1),                            
+                            ),
+                            child: Icon(Icons.add, color: Colors.white, size: 14.8,)),
+                            onTap: () {
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(builder: (context) => cart_fill()),
+                              // );
+                            },
+                        )
+                      ],
+                    ),
+                  ),
+                color: Color(0xFF008ECC),
+                textColor: Colors.black,
+                splashColor: Colors.white,
+                onPressed: () {
+                //   Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => cart_fill()),
+                // );
+              },
             ),
           ),
         ],

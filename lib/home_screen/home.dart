@@ -8,6 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:footer/footer.dart';
+import 'package:footer/footer_view.dart';
 
 import 'cart.dart';
 
@@ -324,1155 +326,1151 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              //SizedBox(
-              //height: 70,
-              //child: ListView(
-              //scrollDirection: Axis.horizontal,
-              //shrinkWrap: true,
-              //children: <Widget>[
-              //CategoryItem(
-              //icon: EvaIcons.giftOutline,
-              //size: 70,
-              //margin: EdgeInsets.only(
-              //left: 10,
-              //),
-              //padding: EdgeInsets.all(10),
-              //backgroundColor: Color(0xFFffe291),
-              //),
-              //CategoryItem(
-              //icon: EvaIcons.headphonesOutline,
-              //size: 70,
-              //margin: EdgeInsets.only(
-              //left: 10,
-              //),
-              //padding: EdgeInsets.all(10),
-              //backgroundColor: Color(0xFF91bfff),
-              //),
-              //CategoryItem(
-              //icon: EvaIcons.hardDriveOutline,
-              //size: 70,
-              //margin: EdgeInsets.only(
-              //left: 10,
-              //),
-              //padding: EdgeInsets.all(10),
-              //backgroundColor: Color(0xFFff91c1),
-              //),
-              //CategoryItem(
-              //icon: EvaIcons.printerOutline,
-              //size: 70,
-              //margin: EdgeInsets.only(
-              //left: 10,
-              //),
-              //padding: EdgeInsets.all(10),
-              //backgroundColor: Color(0xFF5340de),
-              //),
-              //CategoryItem(
-              //icon: EvaIcons.videoOutline,
-              //size: 70,
-              //margin: EdgeInsets.only(
-              //left: 10,
-              //),
-              //padding: EdgeInsets.all(10),
-              //backgroundColor: Color(0xFF47e6a9),
-              //),
-              //CategoryItem(
-              //icon: EvaIcons.umbrellaOutline,
-              //size: 70,
-              //margin: EdgeInsets.only(
-              //left: 10,
-              //),
-              //padding: EdgeInsets.all(10),
-              //backgroundColor: Color(0xFFff788e),
-              //),
-              //CategoryItem(
-              //icon: EvaIcons.tvOutline,
-              //size: 70,
-              //margin: EdgeInsets.only(
-              //left: 10,
-              //),
-              //padding: EdgeInsets.all(10),
-              //backgroundColor: Color(0xFFff9378),
-              //),
-              //],
-              //),
-              //),
+      body: FooterView(
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                //SizedBox(
+                //height: 70,
+                //child: ListView(
+                //scrollDirection: Axis.horizontal,
+                //shrinkWrap: true,
+                //children: <Widget>[
+                //CategoryItem(
+                //icon: EvaIcons.giftOutline,
+                //size: 70,
+                //margin: EdgeInsets.only(
+                //left: 10,
+                //),
+                //padding: EdgeInsets.all(10),
+                //backgroundColor: Color(0xFFffe291),
+                //),
+                //CategoryItem(
+                //icon: EvaIcons.headphonesOutline,
+                //size: 70,
+                //margin: EdgeInsets.only(
+                //left: 10,
+                //),
+                //padding: EdgeInsets.all(10),
+                //backgroundColor: Color(0xFF91bfff),
+                //),
+                //CategoryItem(
+                //icon: EvaIcons.hardDriveOutline,
+                //size: 70,
+                //margin: EdgeInsets.only(
+                //left: 10,
+                //),
+                //padding: EdgeInsets.all(10),
+                //backgroundColor: Color(0xFFff91c1),
+                //),
+                //CategoryItem(
+                //icon: EvaIcons.printerOutline,
+                //size: 70,
+                //margin: EdgeInsets.only(
+                //left: 10,
+                //),
+                //padding: EdgeInsets.all(10),
+                //backgroundColor: Color(0xFF5340de),
+                //),
+                //CategoryItem(
+                //icon: EvaIcons.videoOutline,
+                //size: 70,
+                //margin: EdgeInsets.only(
+                //left: 10,
+                //),
+                //padding: EdgeInsets.all(10),
+                //backgroundColor: Color(0xFF47e6a9),
+                //),
+                //CategoryItem(
+                //icon: EvaIcons.umbrellaOutline,
+                //size: 70,
+                //margin: EdgeInsets.only(
+                //left: 10,
+                //),
+                //padding: EdgeInsets.all(10),
+                //backgroundColor: Color(0xFFff788e),
+                //),
+                //CategoryItem(
+                //icon: EvaIcons.tvOutline,
+                //size: 70,
+                //margin: EdgeInsets.only(
+                //left: 10,
+                //),
+                //padding: EdgeInsets.all(10),
+                //backgroundColor: Color(0xFFff9378),
+                //),
+                //],
+                //),
+                //),
 
-              SizedBox(
-                height: 05,
-              ),
-              // banner ad slider
-
-              //CarouselSlider(
-              //options: CarouselOptions(
-              //aspectRatio: 16 / 9,
-              //autoPlay: true,
-              //),
-              //items: bannerAdSlider.map((i) {
-              //return Builder(
-              //builder: (BuildContext context) {
-              //return Container(
-              //width: MediaQuery.of(context).size.width,
-              //margin: EdgeInsets.symmetric(horizontal: 10.0),
-              //child: Image(
-              //image: AssetImage(i),
-              //fit: BoxFit.cover,
-              //alignment: Alignment.topCenter,
-              //),
-              //);
-              //},
-              //);
-              //}).toList(),
-              //),
-
-              SizedBox(
-                  height: 250,
-                  width: MediaQuery.of(context).size.width,
-                  child: Carousel(
-                    boxFit: BoxFit.cover,
-                    images: [
-                      ExactAssetImage("Assets/images/banner1.jpg"),
-                      ExactAssetImage("Assets/images/banner2.jpg"),
-                      ExactAssetImage("Assets/images/banner3.jpg"),
-                      ExactAssetImage("Assets/images/banner4.jpg"),
-                      ExactAssetImage("Assets/images/banner5.jpg"),
-                      ExactAssetImage("Assets/images/banner6.jpg"),
-                      ExactAssetImage("Assets/images/banner7.jpg"),
-                    ],
-                    dotBgColor: Colors.transparent,
-                    dotSize: 5.0,
-                    dotSpacing: 10.0,
-                    dotColor: Colors.grey,
-                  )),
-
-              SizedBox(
-                height: 20,
-              ),
-
-              Container(
-                color: Colors.white,
-                
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Shop from Top Categories",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ),
-                     Container(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              height: 160,
-                              width: 130,
-                              margin: const EdgeInsets.all(3),
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Groceries.jpg'),
-                                      fit: BoxFit.cover)),
-                            ),
-                            Text(
-                              'Groceries',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              height: 160,
-                              width: 130,
-                              margin: const EdgeInsets.all(3),
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Corvid_Essentials.webp'),
-                                      fit: BoxFit.fill)),
-                            ),
-                            Text(
-                              'Covid Essentials',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              height: 160,
-                              width: 130,
-                              margin: const EdgeInsets.all(3),
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Fruits&Vegetables.jfif'),
-                                      fit: BoxFit.cover)),
-                            ),
-                            Text(
-                              'Fruits & Vegetables',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              height: 160,
-                              width: 130,
-                              margin: const EdgeInsets.all(3),
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Tea.jfif'),
-                                      fit: BoxFit.cover)),
-                            ),
-                            Text('Tea',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              height: 160,
-                              width: 130,
-                              margin: const EdgeInsets.all(3),
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/biscuit&Cookies.jfif'),
-                                      fit: BoxFit.cover)),
-                            ),
-                            Text('Biscuit & Cookies',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              height: 160,
-                              width: 130,
-                              margin: const EdgeInsets.all(3),
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Flours.jfif'),
-                                      fit: BoxFit.cover)),
-                            ),
-                            Text('Flours & Sooji ',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                SizedBox(
+                  height: 05,
                 ),
-              ),
-                  ],
+                // banner ad slider
+
+                //CarouselSlider(
+                //options: CarouselOptions(
+                //aspectRatio: 16 / 9,
+                //autoPlay: true,
+                //),
+                //items: bannerAdSlider.map((i) {
+                //return Builder(
+                //builder: (BuildContext context) {
+                //return Container(
+                //width: MediaQuery.of(context).size.width,
+                //margin: EdgeInsets.symmetric(horizontal: 10.0),
+                //child: Image(
+                //image: AssetImage(i),
+                //fit: BoxFit.cover,
+                //alignment: Alignment.topCenter,
+                //),
+                //);
+                //},
+                //);
+                //}).toList(),
+                //),
+
+                SizedBox(
+                    height: 250,
+                    width: MediaQuery.of(context).size.width,
+                    child: Carousel(
+                      boxFit: BoxFit.cover,
+                      images: [
+                        ExactAssetImage("Assets/images/banner1.jpg"),
+                        ExactAssetImage("Assets/images/banner2.jpg"),
+                        ExactAssetImage("Assets/images/banner3.jpg"),
+                        ExactAssetImage("Assets/images/banner4.jpg"),
+                        ExactAssetImage("Assets/images/banner5.jpg"),
+                        ExactAssetImage("Assets/images/banner6.jpg"),
+                        ExactAssetImage("Assets/images/banner7.jpg"),
+                      ],
+                      dotBgColor: Colors.transparent,
+                      dotSize: 5.0,
+                      dotSpacing: 10.0,
+                      dotColor: Colors.grey,
+                    )),
+
+                SizedBox(
+                  height: 20,
                 ),
-                
-              ),
 
-              
-              SizedBox(
-                height: 10,
-              ),
-
-              Container(
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
+                Container(
+                  color: Colors.white,
+                  
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            "Top Deals",
+                            "Shop from Top Categories",
+                            textAlign: TextAlign.left,
                             style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600),
                           ),
                         ),
-                        Container(
-                          padding: const EdgeInsets.all(2.0),
-                          margin: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            child: Row(
-                              children: <Widget>[
-                                Text(
-                                  "VIEW ALL",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: 15,
-                                  color: Colors.red,
-                                ),
-                              ],
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => offers(),
-                                  fullscreenDialog: false,
-                                ),
-                              );
-                            },
-                          ),
-                        )
-                      ],
-                    ),
-                    InkWell(
-                      child: Container(
-                       margin: EdgeInsets.symmetric(horizontal: 8),
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(maxHeight: 200),
-                            child: ListView.builder(
-                            itemBuilder: (context, index) {
-                            return createWishListItem();
-                          },
-                            itemCount: 8,
-                            primary: false,
-                            scrollDirection: Axis.horizontal,
-                          ),
-                        ),
                       ),
-                      onTap: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                        builder: (context) => offers(),
-                        ),
-                      );
-                     },
-                    ),
-                  ],
-                ),
-              ),
-            
-              SizedBox(
-                height: 10,
-              ),
-
-              SizedBox(
-                  height: 140,
-                  width: MediaQuery.of(context).size.width,
-                  child: Carousel(
-                    boxFit: BoxFit.cover,
-                    images: [
-                      ExactAssetImage("Assets/images/banner8.jpg"),
-                      ExactAssetImage("Assets/images/banner9.jpg"),
-                    ],
-                    dotBgColor: Colors.transparent,
-                    dotSize: 4.0,
-                    dotSpacing: 10.0,
-                    dotColor: Colors.grey,
-                  )),
-
-              SizedBox(
-                height: 20,
-              ),
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Shop Groceries",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-
-              SizedBox(
-                height: 10,
-              ),
-
-              Container(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
                     children: [
-                      InkWell(
-                        child: Container(
-                          width: 165,
-                          height: 58,
-                          margin: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                          ),
-                          child: Row(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
                             children: [
                               Container(
-                                height: 50,
-                                width: 50,  
-                                margin: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Fruits&Vegetables(1).jpg'),
-                                      fit: BoxFit.cover),
-                                ),
+                                height: 160,
+                                width: 130,
+                                margin: const EdgeInsets.all(3),
+                                decoration: new BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Groceries.jpg'),
+                                        fit: BoxFit.cover)),
                               ),
-                              SizedBox(width: 5),
-                              Container(
-                                child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
-                              )
+                              Text(
+                                'Groceries',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ],
                           ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                        },
+                          Column(
+                            children: [
+                              Container(
+                                height: 160,
+                                width: 130,
+                                margin: const EdgeInsets.all(3),
+                                decoration: new BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Corvid_Essentials.webp'),
+                                        fit: BoxFit.fill)),
+                              ),
+                              Text(
+                                'Covid Essentials',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                height: 160,
+                                width: 130,
+                                margin: const EdgeInsets.all(3),
+                                decoration: new BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Fruits&Vegetables.jfif'),
+                                        fit: BoxFit.cover)),
+                              ),
+                              Text(
+                                'Fruits & Vegetables',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      InkWell(
-                        child: Container(
-                          width: 165,
-                          height: 58,
-                          margin: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                          ),
-                          child: Row(
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 50,  
-                                margin: const EdgeInsets.all(5.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Diary&Biscuit.jfif'),
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                              SizedBox(width: 5),
-                              Container(
-                                child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
-                              )
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                        },
+                      SizedBox(
+                        height: 10,
                       ),
-                      InkWell(
-                        child: Container(
-                          width: 165,
-                          height: 58,
-                          margin: const EdgeInsets.all(5.0),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                          ),
-                          child: Row(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
                             children: [
                               Container(
-                                height: 50,
-                                width: 50,  
-                                margin: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Staples.jfif'),
-                                      fit: BoxFit.cover),
-                                ),
+                                height: 160,
+                                width: 130,
+                                margin: const EdgeInsets.all(3),
+                                decoration: new BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Tea.jfif'),
+                                        fit: BoxFit.cover)),
                               ),
-                              SizedBox(width: 5),
-                              Container(
-                                child: Text('Staples', style: TextStyle(fontSize: 12),),
-                              )
+                              Text('Tea',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
                             ],
                           ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                        },
-                      ),
-                      InkWell(
-                        child: Container(
-                          width: 165,
-                          height: 58,
-                          margin: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                          ),
-                          child: Row(
+                          Column(
                             children: [
                               Container(
-                                height: 50,
-                                width: 50,  
-                                margin: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Snacks.jpg'),
-                                      fit: BoxFit.cover),
-                                ),
+                                height: 160,
+                                width: 130,
+                                margin: const EdgeInsets.all(3),
+                                decoration: new BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/biscuit&Cookies.jfif'),
+                                        fit: BoxFit.cover)),
                               ),
-                              SizedBox(width: 5),
-                              Container(
-                                child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
-                              )
+                              Text('Biscuit & Cookies',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
                             ],
                           ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-
-                        },
-                      ),
-                      InkWell(
-                        child: Container(
-                          width: 165,
-                          height: 58,
-                          margin: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                          ),
-                          child: Row(
+                          Column(
                             children: [
                               Container(
-                                height: 50,
-                                width: 50,  
-                                margin: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Hair_care.jpg'),
-                                      fit: BoxFit.cover),
-                                ),
+                                height: 160,
+                                width: 130,
+                                margin: const EdgeInsets.all(3),
+                                decoration: new BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Flours.jfif'),
+                                        fit: BoxFit.cover)),
                               ),
-                              SizedBox(width: 5),
-                              Container(
-                                child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
-                              )
+                              Text('Flours & Sooji ',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
                             ],
                           ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                        },
-                      ),
-                      InkWell(
-                        child: Container(
-                          width: 165,
-                          height: 58,
-                          margin: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                          ),
-                          child: Row(
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 50,  
-                                margin: const EdgeInsets.all(5.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                  image: DecorationImage(
-                                      image: AssetImage('Assets/images/Herbal_Home.webp'),
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                              SizedBox(width: 5),
-                              Container(
-                                child: Text('Home Care', style: TextStyle(fontSize: 12),),
-                              )
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                        },
+                        ],
                       ),
                     ],
                   ),
-                )
-              ),
+                ),
+                    ],
+                  ),
+                  
+                ),
 
-              SizedBox(height: 6.0,),
+                
+                SizedBox(
+                  height: 10,
+                ),
 
-
-              // banner ad slider
-
-              Container(
-                color: Color(0xFFbce1fe),
-                child: Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.all(12.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          InkWell(
-                            child: Container(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 160,
-                                      width: 160,
-                                      margin: const EdgeInsets.all(3),
-                                      decoration: new BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(10.0)),
-                                          image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
-                                        SizedBox(width: 2.0),
-                                        Text('30 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
-                                      ],
-                                    ),
-                                    
-                                    Text('DALS & PULSES', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
-                                  ],
-                                ),
-                              ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Top Deals",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600),
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                            },
                           ),
-                          InkWell(
-                            child: Container(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 160,
-                                      width: 160,
-                                      margin: const EdgeInsets.all(3),
-                                      decoration: new BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(10.0)),
-                                          image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
-                                        SizedBox(width: 2.0),
-                                        Text('10 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
-                                      ],
-                                    ),
-                                    
-                                    Text('SALT, SUGAR', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
-                                  ],
-                                ),
+                          Container(
+                            padding: const EdgeInsets.all(2.0),
+                            margin: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    "VIEW ALL",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 15,
+                                    color: Colors.red,
+                                  ),
+                                ],
                               ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => offers(),
+                                    fullscreenDialog: false,
+                                  ),
+                                );
+                              },
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                            },
-                          ),
+                          )
                         ],
                       ),
-                    ),
-
-                    Container(
-                      margin: const EdgeInsets.all(12.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            child: Container(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 160,
-                                      width: 160,
-                                      margin: const EdgeInsets.all(3),
-                                      decoration: new BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(10.0)),
-                                          image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)
-                                          ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
-                                        SizedBox(width: 2.0),
-                                        Text('25 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
-                                      ],
-                                    ),
-                                    
-                                    Text('ATTA & SOOJI', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
-                                  ],
-                                ),
-                              ),
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
+                      InkWell(
+                        child: Container(
+                         margin: EdgeInsets.symmetric(horizontal: 8),
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(maxHeight: 200),
+                              child: ListView.builder(
+                              itemBuilder: (context, index) {
+                              return createWishListItem();
                             },
-                          ),
-                          InkWell(
-                            child: Container(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 160,
-                                      width: 160,
-                                      margin: const EdgeInsets.all(3),
-                                      decoration: new BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(10.0)),
-                                          image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
-                                        SizedBox(width: 2.0),
-                                        Text('30 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
-                                      ],
-                                    ),
-                                    
-                                    Text('COOKING OIL', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
-                                  ],
-                                ),
-                              ),
+                              itemCount: 8,
+                              primary: false,
+                              scrollDirection: Axis.horizontal,
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                            },
                           ),
-                        ],
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                          builder: (context) => offers(),
+                          ),
+                        );
+                       },
                       ),
-                    ),
-
-
-
-                    Container(
-                      margin: const EdgeInsets.all(12.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            child: Container(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 160,
-                                      width: 160,
-                                      margin: const EdgeInsets.all(3),
-                                      decoration: new BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(10.0)),
-                                          image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
-                                        SizedBox(width: 2.0),
-                                        Text('30 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
-                                      ],
-                                    ),
-                                    
-                                    Text('PERSONAL CARE', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
-                                  ],
-                                ),
-                              ),
-                            ),
-                            onTap: () {
-                               Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => offers()),
-                              );
-                            },
-                          ),
-                          InkWell(
-                            child: Container(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 160,
-                                      width: 160,
-                                      margin: const EdgeInsets.all(3),
-                                      decoration: new BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(10.0)),
-                                          image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
-                                        SizedBox(width: 2.0),
-                                        Text('20 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
-                                      ],
-                                    ),
-                                    
-                                    Text('BATH & HANDWASH', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
-                                  ],
-                                ),
-                              ),
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => offers()),
-                             );
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                         
-                    SizedBox(height: 10,),
-
-                   
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-
-              SizedBox(
-                height: 10,
-              ),
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Top Deals for You",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-              InkWell(
-                child: Container(
-                  height: 160,
-                  decoration: new BoxDecoration(
-                      color: Colors.blue,
-                      image: DecorationImage(
-                          image: new AssetImage('Assets/images/poster1.jpg'),
-                          fit: BoxFit.cover)),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return offers();
-                      },
-                    ),
-                  );
-                },
-              ),
-
-              SizedBox(
-                height: 10,
-              ),
-
-              InkWell(
-                child: Container(
-                  height: 160,
-                  decoration: new BoxDecoration(
-                      color: Colors.blue,
-                      image: DecorationImage(
-                          image: new AssetImage('Assets/images/poster2.jpg'),
-                          fit: BoxFit.cover)),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return offers();
-                      },
-                    ),
-                  );
-                },
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Best Deals for You",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-              InkWell(
-                child: Container(
-                  height: 160,
-                  decoration: new BoxDecoration(
-                      color: Colors.blue,
-                      image: DecorationImage(
-                          image: new AssetImage('Assets/images/poster3.jpg'),
-                          fit: BoxFit.cover)),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return offers();
-                      },
-                    ),
-                  );
-                },
-              ),
-
-              SizedBox(
-                height: 10,
-              ),
-
-              InkWell(
-                child: Container(
-                  height: 160,
-                  decoration: new BoxDecoration(
-                      color: Colors.blue,
-                      image: DecorationImage(
-                          image: new AssetImage('Assets/images/poster4.jpg'),
-                          fit: BoxFit.cover)),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return offers();
-                      },
-                    ),
-                  );
-                },
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Exclusive Deals for You",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-              InkWell(
-                child: Container(
-                  height: 160,
-                  decoration: new BoxDecoration(
-                      color: Colors.blue,
-                      image: DecorationImage(
-                          image: new AssetImage('Assets/images/poster5.jpg'),
-                          fit: BoxFit.cover)),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return offers();
-                      },
-                    ),
-                  );
-                },
-              ),
-
-              SizedBox(
-                height: 10,
-              ),
-
-              InkWell(
-                child: Container(
-                  height: 160,
-                  decoration: new BoxDecoration(
-                      color: Colors.blue,
-                      image: DecorationImage(
-                          image: new AssetImage('Assets/images/poster6.jpg'),
-                          fit: BoxFit.cover)),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return offers();
-                      },
-                    ),
-                  );
-                },
-              ),
-
-              SizedBox(
-                height: 10,
-              ),
-
               
-              Container(
-                width: 500,
-                height: 30.8,
-                color: Colors.white10,
-                child: Center(child: Text('2020 All rights reserved, Ecommerce Adhoc', textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 11),))
-              )
-            ],
+                SizedBox(
+                  height: 10,
+                ),
+
+                SizedBox(
+                    height: 140,
+                    width: MediaQuery.of(context).size.width,
+                    child: Carousel(
+                      boxFit: BoxFit.cover,
+                      images: [
+                        ExactAssetImage("Assets/images/banner8.jpg"),
+                        ExactAssetImage("Assets/images/banner9.jpg"),
+                      ],
+                      dotBgColor: Colors.transparent,
+                      dotSize: 4.0,
+                      dotSpacing: 10.0,
+                      dotColor: Colors.grey,
+                    )),
+
+                SizedBox(
+                  height: 20,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Shop Groceries",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+
+                Container(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          child: Container(
+                            width: 165,
+                            height: 58,
+                            margin: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,  
+                                  margin: const EdgeInsets.all(8.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Fruits&Vegetables(1).jpg'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Container(
+                                  child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                )
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                          },
+                        ),
+                        InkWell(
+                          child: Container(
+                            width: 165,
+                            height: 58,
+                            margin: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,  
+                                  margin: const EdgeInsets.all(5.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Diary&Biscuit.jfif'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Container(
+                                  child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                )
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                          },
+                        ),
+                        InkWell(
+                          child: Container(
+                            width: 165,
+                            height: 58,
+                            margin: const EdgeInsets.all(5.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,  
+                                  margin: const EdgeInsets.all(8.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Staples.jfif'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Container(
+                                  child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                )
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                          },
+                        ),
+                        InkWell(
+                          child: Container(
+                            width: 165,
+                            height: 58,
+                            margin: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,  
+                                  margin: const EdgeInsets.all(8.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Snacks.jpg'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Container(
+                                  child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                )
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+
+                          },
+                        ),
+                        InkWell(
+                          child: Container(
+                            width: 165,
+                            height: 58,
+                            margin: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,  
+                                  margin: const EdgeInsets.all(8.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Hair_care.jpg'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Container(
+                                  child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                )
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                          },
+                        ),
+                        InkWell(
+                          child: Container(
+                            width: 165,
+                            height: 58,
+                            margin: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,  
+                                  margin: const EdgeInsets.all(5.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                                    image: DecorationImage(
+                                        image: AssetImage('Assets/images/Herbal_Home.webp'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Container(
+                                  child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                )
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                          },
+                        ),
+                      ],
+                    ),
+                  )
+                ),
+
+                SizedBox(height: 6.0,),
+
+
+                // banner ad slider
+
+                Container(
+                  color: Color(0xFFbce1fe),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            InkWell(
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 160,
+                                        width: 160,
+                                        margin: const EdgeInsets.all(3),
+                                        decoration: new BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.all(Radius.circular(10.0)),
+                                            image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
+                                          SizedBox(width: 2.0),
+                                          Text('30 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
+                                        ],
+                                      ),
+                                      
+                                      Text('DALS & PULSES', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                              },
+                            ),
+                            InkWell(
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 160,
+                                        width: 160,
+                                        margin: const EdgeInsets.all(3),
+                                        decoration: new BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.all(Radius.circular(10.0)),
+                                            image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
+                                          SizedBox(width: 2.0),
+                                          Text('10 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
+                                        ],
+                                      ),
+                                      
+                                      Text('SALT, SUGAR', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Container(
+                        margin: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            InkWell(
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 160,
+                                        width: 160,
+                                        margin: const EdgeInsets.all(3),
+                                        decoration: new BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.all(Radius.circular(10.0)),
+                                            image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)
+                                            ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
+                                          SizedBox(width: 2.0),
+                                          Text('25 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
+                                        ],
+                                      ),
+                                      
+                                      Text('ATTA & SOOJI', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                              },
+                            ),
+                            InkWell(
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 160,
+                                        width: 160,
+                                        margin: const EdgeInsets.all(3),
+                                        decoration: new BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.all(Radius.circular(10.0)),
+                                            image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
+                                          SizedBox(width: 2.0),
+                                          Text('30 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
+                                        ],
+                                      ),
+                                      
+                                      Text('COOKING OIL', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+
+
+
+                      Container(
+                        margin: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            InkWell(
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 160,
+                                        width: 160,
+                                        margin: const EdgeInsets.all(3),
+                                        decoration: new BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.all(Radius.circular(10.0)),
+                                            image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
+                                          SizedBox(width: 2.0),
+                                          Text('30 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
+                                        ],
+                                      ),
+                                      
+                                      Text('PERSONAL CARE', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                 Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => offers()),
+                                );
+                              },
+                            ),
+                            InkWell(
+                              child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 160,
+                                        width: 160,
+                                        margin: const EdgeInsets.all(3),
+                                        decoration: new BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.all(Radius.circular(10.0)),
+                                            image: DecorationImage(image: AssetImage('Assets/images/saffola-peppy-tomato-masala.jpg'), fit: BoxFit.contain)),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text('UP TO', style: TextStyle(color: Color(0xFF17a2b8), fontWeight: FontWeight.bold, fontSize: 20),),
+                                          SizedBox(width: 2.0),
+                                          Text('20 %OFF', style: TextStyle(color: Color(0xFF6610f2), fontWeight: FontWeight.bold, fontSize: 20),),
+                                        ],
+                                      ),
+                                      
+                                      Text('BATH & HANDWASH', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => offers()),
+                               );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                           
+                      SizedBox(height: 10,),
+
+                     
+                    ],
+                  ),
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Top Deals for You",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 15,
+                ),
+
+                InkWell(
+                  child: Container(
+                    height: 160,
+                    decoration: new BoxDecoration(
+                        color: Colors.blue,
+                        image: DecorationImage(
+                            image: new AssetImage('Assets/images/poster1.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return offers();
+                        },
+                      ),
+                    );
+                  },
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+
+                InkWell(
+                  child: Container(
+                    height: 160,
+                    decoration: new BoxDecoration(
+                        color: Colors.blue,
+                        image: DecorationImage(
+                            image: new AssetImage('Assets/images/poster2.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return offers();
+                        },
+                      ),
+                    );
+                  },
+                ),
+
+                SizedBox(
+                  height: 15,
+                ),
+
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Best Deals for You",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 15,
+                ),
+
+                InkWell(
+                  child: Container(
+                    height: 160,
+                    decoration: new BoxDecoration(
+                        color: Colors.blue,
+                        image: DecorationImage(
+                            image: new AssetImage('Assets/images/poster3.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return offers();
+                        },
+                      ),
+                    );
+                  },
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+
+                InkWell(
+                  child: Container(
+                    height: 160,
+                    decoration: new BoxDecoration(
+                        color: Colors.blue,
+                        image: DecorationImage(
+                            image: new AssetImage('Assets/images/poster4.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return offers();
+                        },
+                      ),
+                    );
+                  },
+                ),
+
+                SizedBox(
+                  height: 15,
+                ),
+
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Exclusive Deals for You",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 15,
+                ),
+
+                InkWell(
+                  child: Container(
+                    height: 160,
+                    decoration: new BoxDecoration(
+                        color: Colors.blue,
+                        image: DecorationImage(
+                            image: new AssetImage('Assets/images/poster5.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return offers();
+                        },
+                      ),
+                    );
+                  },
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+
+                InkWell(
+                  child: Container(
+                    height: 160,
+                    decoration: new BoxDecoration(
+                        color: Colors.blue,
+                        image: DecorationImage(
+                            image: new AssetImage('Assets/images/poster6.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return offers();
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
+        footer: new Footer(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+              child: Text('2021 All rights reverved, Ecommerce Adhoc', style: TextStyle(fontSize: 10))
+            )
+          )
       ),
     );
   }
@@ -1539,24 +1537,54 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 2),
           Container(
-            height: 15,
+            height: 28,
+            width: 120,
             margin: EdgeInsets.all(4),
-            child: RaisedButton(
-              child: Text(
-                "ADD",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
-              ),
-              color: Color(0xff008ecc),
-              textColor: Colors.black,
-              splashColor: Colors.white,
-              onPressed: () {
-                Navigator.push(
+              child: RaisedButton(
+                child: Container(
+                  alignment: Alignment.center,
+                    margin: const EdgeInsets.all(5.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Text(
+                              "ADD",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
+                            ),
+                          ),
+                          //Spacer(flex: 5),
+                        InkWell(
+                          child: Container(
+                            width: 28,
+                            height: 28,
+                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xFF1B9AD1),                            
+                            ),
+                            child: Icon(Icons.add, color: Colors.white, size: 14.8,)),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => cart_fill()),
+                              );
+                            },
+                        )
+                      ],
+                    ),
+                  ),
+                color: Color(0xFF008ECC),
+                textColor: Colors.black,
+                splashColor: Colors.white,
+                onPressed: () {
+                  Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => cart()),
+                  MaterialPageRoute(builder: (context) => cart_fill()),
                 );
               },
             ),

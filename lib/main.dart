@@ -133,12 +133,6 @@ class _HomeState extends State<Home> {
                 ),
               )
             : InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => home()),
-                  );
-                },
                 child: Container(
                   height: Platform.isIOS ? 70 : 60,
                   color: Colors.blue,
@@ -149,6 +143,12 @@ class _HomeState extends State<Home> {
                         color: Colors.white, fontWeight: FontWeight.w600),
                   ),
                 ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => home()),
+                  );
+                },
               ),
       ),
     );
