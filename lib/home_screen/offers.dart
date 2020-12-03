@@ -26,6 +26,8 @@ class _offersState extends State<offers> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -57,7 +59,7 @@ class _offersState extends State<offers> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => profile()),
+                MaterialPageRoute(builder: (context) => cart_fill()),
               );
             },
             icon: Icon(
@@ -79,7 +81,7 @@ class _offersState extends State<offers> {
                   child: new FlatButton(
                     child: Text(
                       'Groceries',
-                       style: TextStyle(color: Colors.black, fontSize: 14),
+                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     ),
                     onPressed: () {},
                   ),
@@ -116,7 +118,7 @@ class _offersState extends State<offers> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -153,7 +155,7 @@ class _offersState extends State<offers> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -190,7 +192,7 @@ class _offersState extends State<offers> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                        child: Text('Staples', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -227,7 +229,7 @@ class _offersState extends State<offers> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -265,7 +267,7 @@ class _offersState extends State<offers> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -302,7 +304,7 @@ class _offersState extends State<offers> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                        child: Text('Home Care', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -333,7 +335,9 @@ class _offersState extends State<offers> {
                     child: Text(
                       "34 products",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),
@@ -357,7 +361,7 @@ class _offersState extends State<offers> {
                               IconButton(  
                                 padding: const EdgeInsets.only(bottom: 3),
                                 icon: Icon(EvaIcons.options2Outline, size: 18,), onPressed: null,),           
-                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontSize: 9.5),),
+                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w700, fontSize: 9.5),),
                             ],
                           ),
                         ),
@@ -506,8 +510,8 @@ class _offersState extends State<offers> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
-                  width: 80,
-                  height: 80,
+                  width: 100,
+                  height: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(14)),
                       color: Colors.blue,
@@ -528,10 +532,10 @@ class _offersState extends State<offers> {
                             "Snactac Masala Instant Noodles 300 g",
                             maxLines: 2,
                             softWrap: true,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
                           ),
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 6.8),
                         Container(
                           child: Row(
                             children: <Widget>[
@@ -539,6 +543,8 @@ class _offersState extends State<offers> {
                                 "\$299.00",
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roboto',
+                                    fontSize: 16.7,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
@@ -547,7 +553,7 @@ class _offersState extends State<offers> {
                               Text(
                                 "\$115.00",
                                 style: TextStyle(
-                                    color: Colors.black54,
+                                    color: Colors.black87,
                                     fontSize: 12,
                                     decoration: TextDecoration.lineThrough),
                               ),
@@ -566,39 +572,56 @@ class _offersState extends State<offers> {
                           width: 6,
                         ),
                         Container(
-                          height: 25,
+                          height: 35,
+                          width: 280,
                           alignment: Alignment.topRight,
-                          padding: const EdgeInsets.only(left: 200.0),
+                          padding: const EdgeInsets.only(left: 195.0),
                           margin: EdgeInsets.all(4),
-                          child: RaisedButton(
-                            child: Container(
-                              alignment: Alignment.center,
-                              margin: const EdgeInsets.all(5.0),
-                              child: Row(
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),  
+                            decoration: BoxDecoration(
+                              color: Color(0xFF008ECC),
+                              borderRadius: BorderRadius.circular(5.0)
+                            ),
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.all(4),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    "ADD",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "ADD",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white),
+                                    ),
                                   ),
-                                  SizedBox(width: 5.0),
-                                  Icon(Icons.add, color: Colors.white, size: 13,)
+                                  Spacer(flex: 2),
+                   
+                                  Container(
+                                    height: 22,
+                                    width: 22,
+                                    alignment: Alignment.centerRight,
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: RaisedButton(
+                                      padding: EdgeInsets.zero,
+                                      shape: CircleBorder(),
+                                      color: Color(0xFF1B9AD1),
+                                      child: Icon(Icons.add, size: 17, color: Colors.white,),
+                                      onPressed: () {
+                                        // setState(() {
+                                        //   _counter++;
+                                        //   //doMult();
+                                        // });
+                                      }, 
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
-                            color: Color(0xFF008ECC),
-                            textColor: Colors.black,
-                            splashColor: Colors.white,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => cart_fill()),
-                              );
-                            },
-                          ),
                         ),
                         //Icon(Icons.add, size: 24, color: Colors.grey.shade700,
                       ],
@@ -643,7 +666,7 @@ _sortfilter(context) {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(15.0),
-            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black)),
+            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black)),
           ),
           SizedBox(height: 20,),
           Container(
@@ -653,52 +676,52 @@ _sortfilter(context) {
               children: [
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Popularity',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Low to High',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'High to Low',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Discount',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 13, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
@@ -728,6 +751,8 @@ class _fruitsVegState extends State<fruitsVeg> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -781,7 +806,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                   child: new FlatButton(
                     child: Text(
                       'Fruits &\nVegetables',
-                       style: TextStyle(color: Colors.black, fontSize: 14),
+                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     ),
                     onPressed: () {},
                   ),
@@ -818,7 +843,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -855,7 +880,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -892,7 +917,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                        child: Text('Staples', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -929,7 +954,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -967,7 +992,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -1004,7 +1029,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                        child: Text('Home Care', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -1035,7 +1060,9 @@ class _fruitsVegState extends State<fruitsVeg> {
                     child: Text(
                       "34 products",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),
@@ -1059,7 +1086,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                               IconButton(  
                                 padding: const EdgeInsets.only(bottom: 3),
                                 icon: Icon(EvaIcons.options2Outline, size: 18,), onPressed: null,),           
-                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontSize: 9.5),),
+                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w700, fontSize: 9.5),),
                             ],
                           ),
                         ),
@@ -1206,8 +1233,8 @@ class _fruitsVegState extends State<fruitsVeg> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
-                  width: 80,
-                  height: 80,
+                  width: 100,
+                  height: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(14)),
                       color: Colors.blue,
@@ -1228,10 +1255,10 @@ class _fruitsVegState extends State<fruitsVeg> {
                             "Imported Kiwi 5 pcs",
                             maxLines: 2,
                             softWrap: true,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
                           ),
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 6.8),
                         Container(
                           child: Row(
                             children: <Widget>[
@@ -1239,6 +1266,8 @@ class _fruitsVegState extends State<fruitsVeg> {
                                 "\$129.00",
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roboto',
+                                    fontSize: 16.7,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
@@ -1247,7 +1276,7 @@ class _fruitsVegState extends State<fruitsVeg> {
                               Text(
                                 "\$115.00",
                                 style: TextStyle(
-                                    color: Colors.black54,
+                                    color: Colors.black87,
                                     fontSize: 12,
                                     decoration: TextDecoration.lineThrough),
                               ),
@@ -1266,39 +1295,56 @@ class _fruitsVegState extends State<fruitsVeg> {
                           width: 6,
                         ),
                         Container(
-                          height: 25,
+                          height: 35,
+                          width: 280,
                           alignment: Alignment.topRight,
-                          padding: const EdgeInsets.only(left: 200.0),
+                          padding: const EdgeInsets.only(left: 195.0),
                           margin: EdgeInsets.all(4),
-                          child: RaisedButton(
-                            child: Container(
-                              alignment: Alignment.center,
-                              margin: const EdgeInsets.all(5.0),
-                              child: Row(
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),  
+                            decoration: BoxDecoration(
+                              color: Color(0xFF008ECC),
+                              borderRadius: BorderRadius.circular(5.0)
+                            ),
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.all(4),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    "ADD",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "ADD",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white),
+                                    ),
                                   ),
-                                  SizedBox(width: 5.0),
-                                  Icon(Icons.add, color: Colors.white, size: 13,)
+                                  Spacer(flex: 2),
+                   
+                                  Container(
+                                    height: 22,
+                                    width: 22,
+                                    alignment: Alignment.centerRight,
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: RaisedButton(
+                                      padding: EdgeInsets.zero,
+                                      shape: CircleBorder(),
+                                      color: Color(0xFF1B9AD1),
+                                      child: Icon(Icons.add, size: 17, color: Colors.white,),
+                                      onPressed: () {
+                                        // setState(() {
+                                        //   _counter++;
+                                        //   //doMult();
+                                        // });
+                                      }, 
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
-                            color: Color(0xFF008ECC),
-                            textColor: Colors.black,
-                            splashColor: Colors.white,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => cart()),
-                              );
-                            },
-                          ),
                         ),
                         //Icon(Icons.add, size: 24, color: Colors.grey.shade700,
                       ],
@@ -1342,7 +1388,7 @@ class _fruitsVegState extends State<fruitsVeg> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(15.0),
-            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black)),
+            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black)),
           ),
           SizedBox(height: 20,),
           Container(
@@ -1352,52 +1398,52 @@ class _fruitsVegState extends State<fruitsVeg> {
               children: [
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Popularity',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Low to High',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'High to Low',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Discount',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
@@ -1428,6 +1474,8 @@ class _dairyBakeryState extends State<dairyBakery> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -1481,7 +1529,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                   child: new FlatButton(
                     child: Text(
                       'Dairy &\nBakery',
-                       style: TextStyle(color: Colors.black, fontSize: 14),
+                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     ),
                     onPressed: () {},
                   ),
@@ -1518,7 +1566,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -1555,7 +1603,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -1592,7 +1640,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                        child: Text('Staples', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -1629,7 +1677,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -1667,7 +1715,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -1704,7 +1752,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                        child: Text('Home Care', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -1735,7 +1783,9 @@ class _dairyBakeryState extends State<dairyBakery> {
                     child: Text(
                       "34 products",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),
@@ -1759,7 +1809,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                               IconButton(  
                                 padding: const EdgeInsets.only(bottom: 3),
                                 icon: Icon(EvaIcons.options2Outline, size: 18,), onPressed: null,),           
-                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontSize: 9.5),),
+                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w700, fontSize: 9.5),),
                             ],
                           ),
                         ),
@@ -1906,8 +1956,8 @@ class _dairyBakeryState extends State<dairyBakery> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
-                  width: 80,
-                  height: 80,
+                  width: 100,
+                  height: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(14)),
                       color: Colors.blue,
@@ -1928,10 +1978,10 @@ class _dairyBakeryState extends State<dairyBakery> {
                             "Burger Bun With Sesame Seed 200 g",
                             maxLines: 2,
                             softWrap: true,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
                           ),
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 6.8),
                         Container(
                           child: Row(
                             children: <Widget>[
@@ -1939,6 +1989,8 @@ class _dairyBakeryState extends State<dairyBakery> {
                                 "\$27.90",
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roboto',
+                                    fontSize: 16.7,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
@@ -1947,7 +1999,7 @@ class _dairyBakeryState extends State<dairyBakery> {
                               Text(
                                 "\$30.00",
                                 style: TextStyle(
-                                    color: Colors.black54,
+                                    color: Colors.black87,
                                     fontSize: 12,
                                     decoration: TextDecoration.lineThrough),
                               ),
@@ -1966,39 +2018,56 @@ class _dairyBakeryState extends State<dairyBakery> {
                           width: 6,
                         ),
                         Container(
-                          height: 25,
+                          height: 35,
+                          width: 280,
                           alignment: Alignment.topRight,
-                          padding: const EdgeInsets.only(left: 200.0),
+                          padding: const EdgeInsets.only(left: 195.0),
                           margin: EdgeInsets.all(4),
-                          child: RaisedButton(
-                            child: Container(
-                              alignment: Alignment.center,
-                              margin: const EdgeInsets.all(5.0),
-                              child: Row(
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),  
+                            decoration: BoxDecoration(
+                              color: Color(0xFF008ECC),
+                              borderRadius: BorderRadius.circular(5.0)
+                            ),
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.all(4),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    "ADD",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "ADD",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white),
+                                    ),
                                   ),
-                                  SizedBox(width: 5.0),
-                                  Icon(Icons.add, color: Colors.white, size: 13,)
+                                  Spacer(flex: 2),
+                   
+                                  Container(
+                                    height: 22,
+                                    width: 22,
+                                    alignment: Alignment.centerRight,
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: RaisedButton(
+                                      padding: EdgeInsets.zero,
+                                      shape: CircleBorder(),
+                                      color: Color(0xFF1B9AD1),
+                                      child: Icon(Icons.add, size: 17, color: Colors.white,),
+                                      onPressed: () {
+                                        // setState(() {
+                                        //   _counter++;
+                                        //   //doMult();
+                                        // });
+                                      }, 
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
-                            color: Color(0xFF008ECC),
-                            textColor: Colors.black,
-                            splashColor: Colors.white,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => cart()),
-                              );
-                            },
-                          ),
                         ),
                         //Icon(Icons.add, size: 24, color: Colors.grey.shade700,
                       ],
@@ -2042,7 +2111,7 @@ class _dairyBakeryState extends State<dairyBakery> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(15.0),
-            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black)),
+            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black)),
           ),
           SizedBox(height: 20,),
           Container(
@@ -2052,52 +2121,52 @@ class _dairyBakeryState extends State<dairyBakery> {
               children: [
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Popularity',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Low to High',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'High to Low',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Discount',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
@@ -2128,6 +2197,8 @@ class _staplesState extends State<staples> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -2181,7 +2252,7 @@ class _staplesState extends State<staples> {
                   child: new FlatButton(
                     child: Text(
                       'Staples',
-                       style: TextStyle(color: Colors.black, fontSize: 14),
+                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     ),
                     onPressed: () {},
                   ),
@@ -2218,7 +2289,7 @@ class _staplesState extends State<staples> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -2255,7 +2326,7 @@ class _staplesState extends State<staples> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -2292,7 +2363,7 @@ class _staplesState extends State<staples> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                        child: Text('Staples', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -2329,7 +2400,7 @@ class _staplesState extends State<staples> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -2367,7 +2438,7 @@ class _staplesState extends State<staples> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -2404,7 +2475,7 @@ class _staplesState extends State<staples> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                        child: Text('Home Care', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -2435,7 +2506,9 @@ class _staplesState extends State<staples> {
                     child: Text(
                       "34 products",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),
@@ -2459,7 +2532,7 @@ class _staplesState extends State<staples> {
                               IconButton(  
                                 padding: const EdgeInsets.only(bottom: 3),
                                 icon: Icon(EvaIcons.options2Outline, size: 18,), onPressed: null,),           
-                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontSize: 9.5),),
+                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w700, fontSize: 9.5),),
                             ],
                           ),
                         ),
@@ -2606,8 +2679,8 @@ class _staplesState extends State<staples> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
-                  width: 80,
-                  height: 80,
+                  width: 100,
+                  height: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(14)),
                       color: Colors.blue,
@@ -2628,10 +2701,10 @@ class _staplesState extends State<staples> {
                             "Toor / Arhar Dal 2 kg",
                             maxLines: 2,
                             softWrap: true,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
                           ),
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 6.8),
                         Container(
                           child: Row(
                             children: <Widget>[
@@ -2639,6 +2712,8 @@ class _staplesState extends State<staples> {
                                 "\$222.00",
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roboto',
+                                    fontSize: 16.7,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
@@ -2647,7 +2722,7 @@ class _staplesState extends State<staples> {
                               Text(
                                 "\$280.00",
                                 style: TextStyle(
-                                    color: Colors.black54,
+                                    color: Colors.black87,
                                     fontSize: 12,
                                     decoration: TextDecoration.lineThrough),
                               ),
@@ -2666,39 +2741,56 @@ class _staplesState extends State<staples> {
                           width: 6,
                         ),
                         Container(
-                          height: 25,
+                          height: 35,
+                          width: 280,
                           alignment: Alignment.topRight,
-                          padding: const EdgeInsets.only(left: 200.0),
+                          padding: const EdgeInsets.only(left: 195.0),
                           margin: EdgeInsets.all(4),
-                          child: RaisedButton(
-                            child: Container(
-                              alignment: Alignment.center,
-                              margin: const EdgeInsets.all(5.0),
-                              child: Row(
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),  
+                            decoration: BoxDecoration(
+                              color: Color(0xFF008ECC),
+                              borderRadius: BorderRadius.circular(5.0)
+                            ),
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.all(4),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    "ADD",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "ADD",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white),
+                                    ),
                                   ),
-                                  SizedBox(width: 5.0),
-                                  Icon(Icons.add, color: Colors.white, size: 13,)
+                                  Spacer(flex: 2),
+                   
+                                  Container(
+                                    height: 22,
+                                    width: 22,
+                                    alignment: Alignment.centerRight,
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: RaisedButton(
+                                      padding: EdgeInsets.zero,
+                                      shape: CircleBorder(),
+                                      color: Color(0xFF1B9AD1),
+                                      child: Icon(Icons.add, size: 17, color: Colors.white,),
+                                      onPressed: () {
+                                        // setState(() {
+                                        //   _counter++;
+                                        //   //doMult();
+                                        // });
+                                      }, 
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
-                            color: Color(0xFF008ECC),
-                            textColor: Colors.black,
-                            splashColor: Colors.white,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => cart()),
-                              );
-                            },
-                          ),
                         ),
                         //Icon(Icons.add, size: 24, color: Colors.grey.shade700,
                       ],
@@ -2742,7 +2834,7 @@ class _staplesState extends State<staples> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(15.0),
-            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black)),
+            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black)),
           ),
           SizedBox(height: 20,),
           Container(
@@ -2752,52 +2844,52 @@ class _staplesState extends State<staples> {
               children: [
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Popularity',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Low to High',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'High to Low',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Discount',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
@@ -2828,6 +2920,8 @@ class _snacksState extends State<snacks> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -2881,7 +2975,7 @@ class _snacksState extends State<snacks> {
                   child: new FlatButton(
                     child: Text(
                       'Snacks &\nBranded Foods',
-                       style: TextStyle(color: Colors.black, fontSize: 13),
+                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     ),
                     onPressed: () {},
                   ),
@@ -2918,7 +3012,7 @@ class _snacksState extends State<snacks> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -2955,7 +3049,7 @@ class _snacksState extends State<snacks> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -2992,7 +3086,7 @@ class _snacksState extends State<snacks> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                        child: Text('Staples', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3029,7 +3123,7 @@ class _snacksState extends State<snacks> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3067,7 +3161,7 @@ class _snacksState extends State<snacks> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3104,7 +3198,7 @@ class _snacksState extends State<snacks> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                        child: Text('Home Care', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3135,7 +3229,9 @@ class _snacksState extends State<snacks> {
                     child: Text(
                       "34 products",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),
@@ -3159,7 +3255,7 @@ class _snacksState extends State<snacks> {
                               IconButton(  
                                 padding: const EdgeInsets.only(bottom: 3),
                                 icon: Icon(EvaIcons.options2Outline, size: 18,), onPressed: null,),           
-                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontSize: 9.5),),
+                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w700, fontSize: 9.5),),
                             ],
                           ),
                         ),
@@ -3306,8 +3402,8 @@ class _snacksState extends State<snacks> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
-                  width: 80,
-                  height: 80,
+                  width: 100,
+                  height: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(14)),
                       color: Colors.blue,
@@ -3328,10 +3424,10 @@ class _snacksState extends State<snacks> {
                             "Kellogg's Corn Flakes 1.2 kg",
                             maxLines: 2,
                             softWrap: true,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
                           ),
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 6.8),
                         Container(
                           child: Row(
                             children: <Widget>[
@@ -3339,6 +3435,8 @@ class _snacksState extends State<snacks> {
                                 "\$345.50",
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roboto',
+                                    fontSize: 16.7,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
@@ -3347,7 +3445,7 @@ class _snacksState extends State<snacks> {
                               Text(
                                 "\$425.00",
                                 style: TextStyle(
-                                    color: Colors.black54,
+                                    color: Colors.black87,
                                     fontSize: 12,
                                     decoration: TextDecoration.lineThrough),
                               ),
@@ -3366,39 +3464,56 @@ class _snacksState extends State<snacks> {
                           width: 6,
                         ),
                         Container(
-                          height: 25,
+                          height: 35,
+                          width: 280,
                           alignment: Alignment.topRight,
-                          padding: const EdgeInsets.only(left: 200.0),
+                          padding: const EdgeInsets.only(left: 195.0),
                           margin: EdgeInsets.all(4),
-                          child: RaisedButton(
-                            child: Container(
-                              alignment: Alignment.center,
-                              margin: const EdgeInsets.all(5.0),
-                              child: Row(
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),  
+                            decoration: BoxDecoration(
+                              color: Color(0xFF008ECC),
+                              borderRadius: BorderRadius.circular(5.0)
+                            ),
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.all(4),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    "ADD",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "ADD",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white),
+                                    ),
                                   ),
-                                  SizedBox(width: 5.0),
-                                  Icon(Icons.add, color: Colors.white, size: 13,)
+                                  Spacer(flex: 2),
+                   
+                                  Container(
+                                    height: 22,
+                                    width: 22,
+                                    alignment: Alignment.centerRight,
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: RaisedButton(
+                                      padding: EdgeInsets.zero,
+                                      shape: CircleBorder(),
+                                      color: Color(0xFF1B9AD1),
+                                      child: Icon(Icons.add, size: 17, color: Colors.white,),
+                                      onPressed: () {
+                                        // setState(() {
+                                        //   _counter++;
+                                        //   //doMult();
+                                        // });
+                                      }, 
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
-                            color: Color(0xFF008ECC),
-                            textColor: Colors.black,
-                            splashColor: Colors.white,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => cart()),
-                              );
-                            },
-                          ),
                         ),
                         //Icon(Icons.add, size: 24, color: Colors.grey.shade700,
                       ],
@@ -3442,7 +3557,7 @@ class _snacksState extends State<snacks> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(15.0),
-            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black)),
+            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black)),
           ),
           SizedBox(height: 20,),
           Container(
@@ -3452,52 +3567,52 @@ class _snacksState extends State<snacks> {
               children: [
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Popularity',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Low to High',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'High to Low',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Discount',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
@@ -3528,6 +3643,8 @@ class _personalcareState extends State<personalcare> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -3581,7 +3698,7 @@ class _personalcareState extends State<personalcare> {
                   child: new FlatButton(
                     child: Text(
                       'Personal\nCare',
-                       style: TextStyle(color: Colors.black, fontSize: 14),
+                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     ),
                     onPressed: () {},
                   ),
@@ -3618,7 +3735,7 @@ class _personalcareState extends State<personalcare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3655,7 +3772,7 @@ class _personalcareState extends State<personalcare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3692,7 +3809,7 @@ class _personalcareState extends State<personalcare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                        child: Text('Staples', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3729,7 +3846,7 @@ class _personalcareState extends State<personalcare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3767,7 +3884,7 @@ class _personalcareState extends State<personalcare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3804,7 +3921,7 @@ class _personalcareState extends State<personalcare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                        child: Text('Home Care', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -3835,7 +3952,9 @@ class _personalcareState extends State<personalcare> {
                     child: Text(
                       "34 products",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),
@@ -3859,7 +3978,7 @@ class _personalcareState extends State<personalcare> {
                               IconButton(  
                                 padding: const EdgeInsets.only(bottom: 3),
                                 icon: Icon(EvaIcons.options2Outline, size: 18,), onPressed: null,),           
-                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontSize: 9.5),),
+                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w700, fontSize: 9.5),),
                             ],
                           ),
                         ),
@@ -4006,8 +4125,8 @@ class _personalcareState extends State<personalcare> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
-                  width: 80,
-                  height: 80,
+                  width: 100,
+                  height: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(14)),
                       color: Colors.blue,
@@ -4028,10 +4147,10 @@ class _personalcareState extends State<personalcare> {
                             "Dabur Amla Hair Oil 450 ml",
                             maxLines: 2,
                             softWrap: true,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
                           ),
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 6.8),
                         Container(
                           child: Row(
                             children: <Widget>[
@@ -4039,6 +4158,8 @@ class _personalcareState extends State<personalcare> {
                                 "\$199.00",
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roboto',
+                                    fontSize: 16.7,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
@@ -4047,7 +4168,7 @@ class _personalcareState extends State<personalcare> {
                               Text(
                                 "\$15.00",
                                 style: TextStyle(
-                                    color: Colors.black54,
+                                    color: Colors.black87,
                                     fontSize: 12,
                                     decoration: TextDecoration.lineThrough),
                               ),
@@ -4066,39 +4187,56 @@ class _personalcareState extends State<personalcare> {
                           width: 6,
                         ),
                         Container(
-                          height: 25,
+                          height: 35,
+                          width: 280,
                           alignment: Alignment.topRight,
-                          padding: const EdgeInsets.only(left: 200.0),
+                          padding: const EdgeInsets.only(left: 195.0),
                           margin: EdgeInsets.all(4),
-                          child: RaisedButton(
-                            child: Container(
-                              alignment: Alignment.center,
-                              margin: const EdgeInsets.all(5.0),
-                              child: Row(
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),  
+                            decoration: BoxDecoration(
+                              color: Color(0xFF008ECC),
+                              borderRadius: BorderRadius.circular(5.0)
+                            ),
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.all(4),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    "ADD",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "ADD",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white),
+                                    ),
                                   ),
-                                  SizedBox(width: 5.0),
-                                  Icon(Icons.add, color: Colors.white, size: 13,)
+                                  Spacer(flex: 2),
+                   
+                                  Container(
+                                    height: 22,
+                                    width: 22,
+                                    alignment: Alignment.centerRight,
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: RaisedButton(
+                                      padding: EdgeInsets.zero,
+                                      shape: CircleBorder(),
+                                      color: Color(0xFF1B9AD1),
+                                      child: Icon(Icons.add, size: 17, color: Colors.white,),
+                                      onPressed: () {
+                                        // setState(() {
+                                        //   _counter++;
+                                        //   //doMult();
+                                        // });
+                                      }, 
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
-                            color: Color(0xFF008ECC),
-                            textColor: Colors.black,
-                            splashColor: Colors.white,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => cart()),
-                              );
-                            },
-                          ),
                         ),
                         //Icon(Icons.add, size: 24, color: Colors.grey.shade700,
                       ],
@@ -4142,7 +4280,7 @@ class _personalcareState extends State<personalcare> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(15.0),
-            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black)),
+            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black)),
           ),
           SizedBox(height: 20,),
           Container(
@@ -4152,52 +4290,52 @@ class _personalcareState extends State<personalcare> {
               children: [
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Popularity',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Low to High',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'High to Low',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Discount',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
@@ -4228,6 +4366,8 @@ class _homecareState extends State<homecare> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -4281,7 +4421,7 @@ class _homecareState extends State<homecare> {
                   child: new FlatButton(
                     child: Text(
                       'Home Care',
-                       style: TextStyle(color: Colors.black, fontSize: 14),
+                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     ),
                     onPressed: () {},
                   ),
@@ -4318,7 +4458,7 @@ class _homecareState extends State<homecare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                        child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -4355,7 +4495,7 @@ class _homecareState extends State<homecare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                        child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -4392,7 +4532,7 @@ class _homecareState extends State<homecare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                        child: Text('Staples', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -4429,7 +4569,7 @@ class _homecareState extends State<homecare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                        child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -4467,7 +4607,7 @@ class _homecareState extends State<homecare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                        child: Text('Personal \nCare', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -4504,7 +4644,7 @@ class _homecareState extends State<homecare> {
                                       ),
                                       SizedBox(width: 5),
                                       Container(
-                                        child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                        child: Text('Home Care', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                       )
                                     ],
                                   ),
@@ -4535,7 +4675,9 @@ class _homecareState extends State<homecare> {
                     child: Text(
                       "34 products",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
                     ),
@@ -4559,7 +4701,7 @@ class _homecareState extends State<homecare> {
                               IconButton(  
                                 padding: const EdgeInsets.only(bottom: 3),
                                 icon: Icon(EvaIcons.options2Outline, size: 18,), onPressed: null,),           
-                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontSize: 9.5),),
+                                Text('Sort | Filter', style: TextStyle(color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w700, fontSize: 9.5),),
                             ],
                           ),
                         ),
@@ -4706,8 +4848,8 @@ class _homecareState extends State<homecare> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
-                  width: 80,
-                  height: 80,
+                  width: 100,
+                  height: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(14)),
                       color: Colors.blue,
@@ -4728,7 +4870,7 @@ class _homecareState extends State<homecare> {
                             "Shubhkart Camphor 50 g",
                             maxLines: 2,
                             softWrap: true,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
                           ),
                         ),
                         SizedBox(height: 4),
@@ -4739,6 +4881,8 @@ class _homecareState extends State<homecare> {
                                 "\$81.00",
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roboto',
+                                    fontSize: 16.7,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
@@ -4747,7 +4891,7 @@ class _homecareState extends State<homecare> {
                               Text(
                                 "\$90.00",
                                 style: TextStyle(
-                                    color: Colors.black54,
+                                    color: Colors.black87,
                                     fontSize: 12,
                                     decoration: TextDecoration.lineThrough),
                               ),
@@ -4766,39 +4910,56 @@ class _homecareState extends State<homecare> {
                           width: 6,
                         ),
                         Container(
-                          height: 25,
+                          height: 35,
+                          width: 280,
                           alignment: Alignment.topRight,
-                          padding: const EdgeInsets.only(left: 200.0),
+                          padding: const EdgeInsets.only(left: 195.0),
                           margin: EdgeInsets.all(4),
-                          child: RaisedButton(
-                            child: Container(
-                              alignment: Alignment.center,
-                              margin: const EdgeInsets.all(5.0),
-                              child: Row(
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),  
+                            decoration: BoxDecoration(
+                              color: Color(0xFF008ECC),
+                              borderRadius: BorderRadius.circular(5.0)
+                            ),
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.all(4),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    "ADD",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "ADD",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white),
+                                    ),
                                   ),
-                                  SizedBox(width: 5.0),
-                                  Icon(Icons.add, color: Colors.white, size: 13,)
+                                  Spacer(flex: 2),
+                   
+                                  Container(
+                                    height: 22,
+                                    width: 22,
+                                    alignment: Alignment.centerRight,
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: RaisedButton(
+                                      padding: EdgeInsets.zero,
+                                      shape: CircleBorder(),
+                                      color: Color(0xFF1B9AD1),
+                                      child: Icon(Icons.add, size: 17, color: Colors.white,),
+                                      onPressed: () {
+                                        // setState(() {
+                                        //   _counter++;
+                                        //   //doMult();
+                                        // });
+                                      }, 
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
-                            color: Color(0xFF008ECC),
-                            textColor: Colors.black,
-                            splashColor: Colors.white,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => cart()),
-                              );
-                            },
-                          ),
                         ),
                         //Icon(Icons.add, size: 24, color: Colors.grey.shade700,
                       ],
@@ -4842,7 +5003,7 @@ class _homecareState extends State<homecare> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(15.0),
-            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black)),
+            child: Text('Sort & Filter By', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black)),
           ),
           SizedBox(height: 20,),
           Container(
@@ -4852,39 +5013,39 @@ class _homecareState extends State<homecare> {
               children: [
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Popularity',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'Low to High',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
                 ),
                 Container(
                   width: 90,
-                  height: 30,
+                  height: 40,
                   color: Color(0xFFEBEBEB),
                   margin: const EdgeInsets.all(6.0),
                   child: new FlatButton(
                       child: Text(
                         'High to Low',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),
@@ -4897,7 +5058,7 @@ class _homecareState extends State<homecare> {
                   child: new FlatButton(
                       child: Text(
                         'Discount',
-                         style: TextStyle(color: Colors.black, fontSize: 10),
+                         style: TextStyle(color: Colors.black, fontSize: 12.5, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
                       ),
                       onPressed: () {},
                     ),

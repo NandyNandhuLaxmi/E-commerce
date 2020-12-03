@@ -1,5 +1,3 @@
-
-
 import 'package:ecomm_adhoc/home_screen/cart.dart';
 import 'package:ecomm_adhoc/home_screen/offers.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -9,6 +7,9 @@ import 'package:flutter/material.dart';
 
 class product_screen extends StatelessWidget {
   var rating = 3.0;
+  int _counter = 0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +20,8 @@ class product_screen extends StatelessWidget {
           'Ecommerce',
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -51,18 +54,18 @@ class product_screen extends StatelessWidget {
                           child: Text(
                             'Snactac Masala Instant Noodles 300 g',
                             style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black
+                              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                             ),
                           ),
                         ),
-                        SizedBox(height: 5.7,),
+                        SizedBox(height: 6.7,),
                         Container(
                           alignment: Alignment.topLeft,
                           child: Text(
                             'Noodles'.toUpperCase(),
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w800, color: Colors.grey,
+                              fontSize: 12, fontWeight: FontWeight.w800, color: Colors.grey, fontFamily: 'Roboto'
                             ),
                           ),
                         ),
@@ -90,6 +93,7 @@ class product_screen extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'Roboto',
                                   color: Color(0xFF41A141),
                                ),
                             ),
@@ -104,6 +108,7 @@ class product_screen extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'Roboto',
                                   fontSize: 18),
                               ),
                               SizedBox(width: 6.2),
@@ -112,6 +117,7 @@ class product_screen extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.black54,
                                   fontSize: 12,
+                                  fontFamily: 'Roboto',
                                   decoration: TextDecoration.lineThrough),
                               ),
                               SizedBox(width: 6),
@@ -120,6 +126,7 @@ class product_screen extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.black54,
                                     fontSize: 12,
+                                    fontFamily: 'Roboto'
                                 ),
                                ),
                             ],
@@ -141,8 +148,9 @@ class product_screen extends StatelessWidget {
                           "Inaugural Offer Free Shipping",
                           style: TextStyle(
                             fontSize: 12,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w700,
                             color: Colors.black,
+                            fontFamily: 'Roboto'
                           ),
                         ),
                       ),
@@ -168,7 +176,7 @@ class product_screen extends StatelessWidget {
                                 child: Text(
                                   'Delivery',
                                   style: TextStyle(
-                                    fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                    fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                   ),
                                 ),
                               ),
@@ -191,7 +199,7 @@ class product_screen extends StatelessWidget {
                                             '400020',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
-                                              fontSize: 12, fontWeight: FontWeight.w800, color: Colors.black,
+                                              fontSize: 13, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: Colors.black,
                                             ),
                                           ),
                                         ),
@@ -203,7 +211,7 @@ class product_screen extends StatelessWidget {
                                             onPressed: () {}, 
                                             child: Text(
                                               'CHECK',
-                                              style: TextStyle(color: Colors.red, fontSize: 12),
+                                              style: TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.bold, fontFamily: 'Roboto'),
                                              ), 
                                           ),
                                         ),
@@ -241,7 +249,7 @@ class product_screen extends StatelessWidget {
                                 child: Text(
                                   'Offers',
                                   style: TextStyle(
-                                    fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                    fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                   ),
                                 ),
                               ),
@@ -264,7 +272,7 @@ class product_screen extends StatelessWidget {
                                             'Sodex Offer T&C Apply.',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
-                                              fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black,
+                                              fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                             ),
                                           ),
                                         ),     
@@ -287,7 +295,7 @@ class product_screen extends StatelessWidget {
                                             'Mobikwik - Flat Rs.50 /- SuperCash* on Min.',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
-                                              fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black,
+                                              fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                             ),
                                           ),
                                         ),
@@ -318,7 +326,7 @@ class product_screen extends StatelessWidget {
                            Container(
                              alignment: Alignment.topLeft,
                               child: Text('Description',
-                                  style: TextStyle(fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                  style: TextStyle(fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                   ),
                               ),
                             ),  
@@ -326,7 +334,7 @@ class product_screen extends StatelessWidget {
                             Container(
                              alignment: Alignment.topLeft,
                               child: Text('Snacta Masala Instant Noodles 300 g',
-                                  style: TextStyle(fontSize: 12.7, fontWeight: FontWeight.bold, color: Colors.black
+                                  style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                   ),
                               ),
                             ),
@@ -334,7 +342,7 @@ class product_screen extends StatelessWidget {
                             Container(
                              alignment: Alignment.topLeft,
                               child: Text('Filled with the goodness of milk & wheat, Noodles has been a source of all round nourishnmanet for nation the since decades',
-                                  style: TextStyle(fontSize: 12.7, fontWeight: FontWeight.normal, color: Colors.black
+                                  style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal, color: Colors.black, fontFamily: 'Roboto'
                                   ),
                               ),
                             ),    
@@ -361,7 +369,7 @@ class product_screen extends StatelessWidget {
                                 child: Text(
                                   'Features & Details',
                                   style: TextStyle(
-                                    fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                    fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                   ),
                                 ),
                               ),
@@ -380,7 +388,7 @@ class product_screen extends StatelessWidget {
                                             'Instant noodles',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
-                                              fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black,
+                                              fontSize: 14.0, fontWeight: FontWeight.normal, color: Colors.black, fontFamily: 'Roboto'
                                             ),
                                           ),
                                         ),     
@@ -412,7 +420,7 @@ class product_screen extends StatelessWidget {
                                 child: Text(
                                   'Product Information',
                                   style: TextStyle(
-                                    fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                    fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                   ),
                                 ),
                               ),
@@ -433,18 +441,18 @@ class product_screen extends StatelessWidget {
                                                 'Brand ',
                                                 textAlign: TextAlign.left,
                                                 style: TextStyle(
-                                                  fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black,
+                                                  fontSize: 14.0, fontWeight: FontWeight.normal, color: Colors.black, fontFamily: 'Roboto'
                                                 ),
                                               ),
                                             ),
                                             Container(
                                               alignment: Alignment.topLeft,
-                                              padding: EdgeInsets.only(left: 95.0),
+                                              padding: EdgeInsets.only(left: 105.0),
                                               child: Text(
                                                 'Snactac ',
                                                 textAlign: TextAlign.left,
                                                 style: TextStyle(
-                                                  fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black,
+                                                  fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                                 ),
                                               ),
                                             ),
@@ -460,7 +468,7 @@ class product_screen extends StatelessWidget {
                                                 'Manufacturer',
                                                 textAlign: TextAlign.left,
                                                 style: TextStyle(
-                                                  fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black,
+                                                  fontSize: 14.0, fontWeight: FontWeight.normal, color: Colors.black, fontFamily: 'Roboto'
                                                 ),
                                               ),
                                             ),
@@ -471,7 +479,7 @@ class product_screen extends StatelessWidget {
                                                 'Private Label',
                                                 textAlign: TextAlign.left,
                                                 style: TextStyle(
-                                                  fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black,
+                                                  fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                                 ),
                                               ),
                                             ),
@@ -505,10 +513,11 @@ class product_screen extends StatelessWidget {
                                 child: Text(
                                   "Don't Forgot to Add",
                                   style: TextStyle(
-                                    fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                    fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                   ),
                                 ),
                               ),
+                              SizedBox(height: 8),
                               InkWell(
                                child: Container(
                                   margin: EdgeInsets.symmetric(horizontal: 8),
@@ -556,7 +565,7 @@ class product_screen extends StatelessWidget {
                               child: Text(
                                  "Product Rating ",
                                  style: TextStyle(
-                                    fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                    fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                 ),
                               ),
                             ),
@@ -566,7 +575,7 @@ class product_screen extends StatelessWidget {
                                 Container(
                                  alignment: Alignment.topLeft,
                                   child: Text('Rate Product',
-                                      style: TextStyle(fontSize: 12.7, fontWeight: FontWeight.bold, color: Colors.black
+                                      style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto'
                                       ),
                                   ),
                                 ),
@@ -600,14 +609,14 @@ class product_screen extends StatelessWidget {
         ),   
       ),
       bottomSheet: Container(
-        height: 40,
+        height: 45,
         margin: EdgeInsets.symmetric(vertical: 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Text('\View All Categories', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)),
+              child: Text('\View All Categories', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Roboto')),
             ),
                     
             Container(
@@ -628,6 +637,8 @@ class product_screen extends StatelessWidget {
                   "Add to Cart",
                    style: TextStyle(
                    color: Colors.white,
+                   fontFamily: 'Roboto',
+                   fontSize: 18,
                    fontWeight: FontWeight.w600),
                  ),
                 ),
@@ -640,6 +651,7 @@ class product_screen extends StatelessWidget {
 
  createWishListItem() {
     return Container(
+      // height: 220,
       margin: EdgeInsets.symmetric(horizontal: 4),
       decoration:
           BoxDecoration(border: Border.all(color: Colors.grey.shade100)),
@@ -648,9 +660,10 @@ class product_screen extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              width: 120,
+              width: 140,
+              height: 180,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.grey,
                 image: DecorationImage(
                     image: AssetImage(
                         "Assets/images/parle-g-gold-biscuits-1.jpeg"),
@@ -669,88 +682,92 @@ class product_screen extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 14),
+                      fontSize: 15),
                 ),
-                SizedBox(width: 4),
+                SizedBox(width: 5),
                 Text(
                   "\$115.00",
                   style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 12,
+                      color: Colors.black87,
+                      fontSize: 14,
                       decoration: TextDecoration.lineThrough),
                 ),
               ],
             ),
           ),
-          //SizedBox(height: 4),
+          SizedBox(height: 4),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 4),
             child: Text(
               "Save \$ 38.33",
-              style: TextStyle(color: Colors.red.shade400, fontSize: 10),
+              style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold ,fontSize: 13),
             ),
           ),
-          //SizedBox(height: 4),
+          SizedBox(height: 4),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 4),
             child: Text(
-              "Parle-G Gold Bisuits 1KG",
-              style: TextStyle(color: Colors.black, fontSize: 10),
+              "Parle-G Gold \nBisuits 1KG",
+              style: TextStyle(color: Colors.black, fontSize: 13, fontWeight: FontWeight.w800),
             ),
           ),
           SizedBox(height: 2),
-          Container(
-            height: 28,
-            width: 120,
-            margin: EdgeInsets.all(4),
-              child: RaisedButton(
-                child: Container(
-                  alignment: Alignment.center,
-                    margin: const EdgeInsets.all(5.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.only(left: 20.0),
-                            child: Text(
-                              "ADD",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                            ),
-                          ),
-                          //Spacer(flex: 5),
-                        InkWell(
-                          child: Container(
-                            width: 28,
-                            height: 28,
-                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(0xFF1B9AD1),                            
-                            ),
-                            child: Icon(Icons.add, color: Colors.white, size: 14.8,)),
-                            onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(builder: (context) => cart_fill()),
-                              // );
-                            },
-                        )
-                      ],
+          GestureDetector(
+            child: Container(
+              height: 28,
+              width: 138,
+              color: Color(0xFF008ECC),
+              alignment: Alignment.center,
+              
+              margin: EdgeInsets.all(4),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(left: 55),
+                      child: Text(
+                        "ADD",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.white),
+                      ),
                     ),
-                  ),
-                color: Color(0xFF008ECC),
-                textColor: Colors.black,
-                splashColor: Colors.white,
-                onPressed: () {
-                //   Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => cart_fill()),
-                // );
-              },
+                    Spacer(flex: 2),
+                   
+                  Container(
+                    height: 22,
+                    width: 22,
+                    alignment: Alignment.centerRight,
+                    padding: const EdgeInsets.all(1.0),
+                    child: RaisedButton(
+                      padding: EdgeInsets.zero,
+                      shape: CircleBorder(),
+                        color: Color(0xFF1B9AD1),
+                        child: Icon(Icons.add, size: 17, color: Colors.white,),
+                        onPressed: () {
+                          // setState(() {
+                          //   _counter++;
+                          //   //doMult();
+                          // });
+                        }, 
+                      ),
+                  )],
+                    ),
             ),
+            onTap: () {
+              
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) {
+              //       return cart_fill();
+              //     },
+              //   ),
+              // );
+            },
           ),
         ],
       ),

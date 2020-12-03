@@ -1,5 +1,6 @@
 import 'package:ecomm_adhoc/home_screen/cart.dart';
 import 'package:ecomm_adhoc/home_screen/home.dart';
+import 'package:ecomm_adhoc/home_screen/offers.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,6 +22,8 @@ class _profileState extends State<profile> {
           "Sign in",
           style: TextStyle(
             color: Colors.white,
+            fontFamily: 'Roboto',
+            fontSize: 22
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -54,7 +57,7 @@ class _profileState extends State<profile> {
                                 child: Text(
                                   'Sign In',
                                   style: TextStyle(
-                                    fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                    fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black
                                   ),
                                 ),
                               ),
@@ -64,19 +67,20 @@ class _profileState extends State<profile> {
                                 child: Text(
                                   'Sign in to access your Orders, offers and wishlist ',
                                   style: TextStyle(
-                                    fontSize: 12.7, fontWeight: FontWeight.normal, color: Colors.black
+                                    fontSize: 14.7, fontWeight: FontWeight.normal, color: Colors.black
                                   ),
                                 ),
                               ),  
                               SizedBox(height: 18.7,),
                               Container(
-                                height: 43.0,                                
+                                height: 63.0,                        
                                 child: TextField(
                                   autocorrect: true,  
                                   keyboardType: TextInputType.number,
                                   inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                                   enabled: true,
                                   maxLengthEnforced: true,
+                                  maxLength: 10,
                                   decoration: InputDecoration(
                                     prefixText: '+91 | ',
                                     prefixStyle: TextStyle(color: Colors.black),
@@ -140,6 +144,8 @@ class _profile1State extends State<profile1> {
           "Sign Up",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto',
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -173,7 +179,7 @@ class _profile1State extends State<profile1> {
                                   child: Text(
                                     'Sign Up',
                                     style: TextStyle(
-                                      fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                      fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black
                                     ),
                                   ),
                                 ),
@@ -183,7 +189,7 @@ class _profile1State extends State<profile1> {
                                   child: Text(
                                     'Please enter your details. to login purpose',
                                     style: TextStyle(
-                                      fontSize: 12.7, fontWeight: FontWeight.normal, color: Colors.black
+                                      fontSize: 14.7, fontWeight: FontWeight.normal, color: Colors.black
                                     ),
                                   ),
                                 ),  
@@ -273,7 +279,7 @@ class _profile1State extends State<profile1> {
                                   child: Text(
                                     'Verify',
                                     style: TextStyle(
-                                      fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                      fontSize: 16.7, fontWeight: FontWeight.bold, color: Colors.black
                                     ),
                                   ),
                                 ),
@@ -283,7 +289,7 @@ class _profile1State extends State<profile1> {
                                   child: Text(
                                     'We have sent 6 digit OTP on +91 -12345 67890',
                                     style: TextStyle(
-                                      fontSize: 12.7, fontWeight: FontWeight.normal, color: Colors.black
+                                      fontSize: 14.7, fontWeight: FontWeight.normal, color: Colors.black
                                     ),
                                   ),
                                 ),  
@@ -314,7 +320,7 @@ class _profile1State extends State<profile1> {
                                   child: Text(
                                     'Waiting for OTP ',
                                     style: TextStyle(
-                                      fontSize: 12.7, fontWeight: FontWeight.normal, color: Color(0xFF808080)                                    ),
+                                      fontSize: 13.7, fontWeight: FontWeight.normal, color: Color(0xFF808080)                                    ),
                                   ),
                                 ),  
                                 SizedBox(height: 20),
@@ -322,7 +328,7 @@ class _profile1State extends State<profile1> {
                                   width: MediaQuery.of(context).size.height * 0.6,
                                   height: 42.0,
                                   child: RaisedButton(
-                                    child: Text("Verify", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),),
+                                    child: Text("Verify", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16, color: Colors.white),),
                                     color: Color(0xff008ecc),
                                     textColor: Colors.black,
                                     splashColor: Colors.white,
@@ -368,6 +374,8 @@ class _profile_screenState extends State<profile_screen> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         bottom: PreferredSize(
@@ -378,6 +386,7 @@ class _profile_screenState extends State<profile_screen> {
             child: TextField(
               autocorrect: true,
               decoration: InputDecoration(
+                  suffixIcon: Icon(EvaIcons.listOutline, color: Color(0xFF000000),),
                   hintText: 'Search essentials, groceries and more ...',
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
                   filled: true,
@@ -423,7 +432,7 @@ class _profile_screenState extends State<profile_screen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => cart()),
+                MaterialPageRoute(builder: (context) => cart_fill()),
               );
             },
             icon: Icon(
@@ -439,14 +448,14 @@ class _profile_screenState extends State<profile_screen> {
           children: [
             UserAccountsDrawerHeader(
               accountName: Text(
-                'Username',
+                'Adhoc_Ecommerce',
                 style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF008ECC),
                 //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
               ),
               currentAccountPicture: CircleAvatar(
@@ -455,7 +464,7 @@ class _profile_screenState extends State<profile_screen> {
               accountEmail: null,
             ),
             ListTile(
-              title: new Text('Home'),
+              title: new Text('Home', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/home.svg',
                 height: 20.0,
@@ -465,12 +474,12 @@ class _profile_screenState extends State<profile_screen> {
               onTap: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => home()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
               },
             ),
             ListTile(
-              title: new Text('Wallet'),
+              title: new Text('Wallet', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/wallet.svg',
                 height: 20.0,
@@ -485,7 +494,7 @@ class _profile_screenState extends State<profile_screen> {
               },
             ),
             ListTile(
-              title: new Text('Shop by Category'),
+              title: new Text('Shop by Category', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/categories.svg',
                 height: 20.0,
@@ -495,12 +504,12 @@ class _profile_screenState extends State<profile_screen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => profile()),
+                  MaterialPageRoute(builder: (context) => offers()),
                 );
               },
             ),
             ListTile(
-              title: new Text('My Orders'),
+              title: new Text('My Orders', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/checklist.svg',
                 height: 20.0,
@@ -510,12 +519,12 @@ class _profile_screenState extends State<profile_screen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => profile()),
+                  MaterialPageRoute(builder: (context) => cart_fill()),
                 );
               },
             ),
             ListTile(
-              title: new Text('My Account'),
+              title: new Text('My Account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/man-user.svg',
                 height: 20.0,
@@ -525,15 +534,15 @@ class _profile_screenState extends State<profile_screen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => profile()),
+                  MaterialPageRoute(builder: (context) => profile_screen()),
                 );
               },
             ),
             ExpansionTile(
-              title: new Text('Help and Setting'),
+              title: new Text('Help and Setting', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               children: [
                 ListTile(
-                  title: new Text('Customer Service'),
+                  title: new Text('Customer Service', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
                   leading: SvgPicture.asset(
                     'Assets/icons/support.svg',
                     height: 20.0,
@@ -550,7 +559,7 @@ class _profile_screenState extends State<profile_screen> {
               ],
             ),
             ListTile(
-              title: new Text('Sign In'),
+              title: new Text('Sign In', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/in.svg',
                 height: 20.0,
@@ -598,35 +607,40 @@ class _profile_screenState extends State<profile_screen> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage('Assets/images/pro.png'),
-                                fit: BoxFit.fill,
-                              )
                             ),
+                            child: Center(child: SvgPicture.asset('Assets/icons/user.svg', height: 20, width: 20, color: Color(0xFF008ECC), allowDrawingOutsideViewBox: true,)),
                           ),                          
                           SizedBox(width: 18.7,),
-                          Column(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.only(right: 55.0),
-                                child: Text('UserName', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                              ),
-                              SizedBox(height: 2.8,),
-                              Container(
-                                padding: const EdgeInsets.only(left: 25.0),
-                                child: Text('12345678@nomail.adhoc.com', style: TextStyle(color: Color(0xFF66BBE0), fontWeight: FontWeight.w500, fontSize: 11)),
-                              ),
-                              SizedBox(height: 2.8,),
-                              Container(
-                                padding: const EdgeInsets.only(right: 36.0),
-                                child: Text('+91 1234567890', textAlign: TextAlign.left, style: TextStyle(color: Color(0xFF66BBE0), fontWeight: FontWeight.w500, fontSize: 11)),
-                              ),  
-                            ],
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  //padding: const EdgeInsets.only(right: 68.0),
+                                  child: Text('Adhoc_Ecomm', textAlign: TextAlign.left , style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                                ),
+                                SizedBox(height: 2.8,),
+                                Container(
+                                  //padding: const EdgeInsets.only(left: 2.0),
+                                  child: Text('12345678@nomail.adhoc.com', style: TextStyle(color: Color(0xFF66BBE0), fontSize: 14,fontWeight: FontWeight.w500,)),
+                                ),
+                                SizedBox(height: 2.8,),
+                                Container(
+                                  //padding: const EdgeInsets.only(right: 55.0),
+                                  child: Text('+91 1234567890', textAlign: TextAlign.left, style: TextStyle(color: Color(0xFF66BBE0), fontSize: 14, fontWeight: FontWeight.w500,)),
+                                ),  
+                              ],
+                            ),
                           ),
                           Spacer(flex: 10),
-                          Container(
-                            alignment: Alignment.topRight,
-                            child: Icon(Icons.mode_edit, color: Colors.white)
+                          InkWell(
+                            child: Container(
+                              alignment: Alignment.topRight,
+                              child: Icon(Icons.mode_edit, color: Colors.white)
+                            ),
+                            onTap: () => _editprofile(context),
                           )   
                         ],
                       ),
@@ -646,7 +660,7 @@ class _profile_screenState extends State<profile_screen> {
                               children: [
                                 Icon(Icons.payment, color: Colors.white,),
                                 SizedBox(width: 2),
-                                Text("Payment Methods", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),),
+                                Text("Payment Methods", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.7, color: Colors.white),),
                               ],
                             ),
                               color: Color(0xFF66BBE0),
@@ -670,7 +684,7 @@ class _profile_screenState extends State<profile_screen> {
                               children: [
                                 Icon(Icons.insert_drive_file, color: Colors.white,),
                                 SizedBox(width: 2),
-                                Text("Order History", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),),
+                                Text("Order History", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.7, color: Colors.white),),
                               ],
                             ),
                               color: Color(0xFF66BBE0),
@@ -696,7 +710,7 @@ class _profile_screenState extends State<profile_screen> {
                       child: Row(
                         children: [
                           Icon(Icons.location_on, color: Colors.white,),
-                          Text("Delivery Addresses", textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),),
+                          Text("Delivery Addresses", textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.7, color: Colors.white),),
                         ],
                       ),
                         color: Color(0xFF66BBE0),
@@ -736,7 +750,7 @@ class _profile_screenState extends State<profile_screen> {
                                     'My List',
                                      textAlign: TextAlign.left,
                                      style: TextStyle(
-                                        fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black,
+                                        fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black,
                                       ),
                                     ),
                                   ),
@@ -748,7 +762,7 @@ class _profile_screenState extends State<profile_screen> {
                                        'Legal Information',
                                        textAlign: TextAlign.left,
                                        style: TextStyle(
-                                          fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black,
+                                          fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black,
                                        ),
                                       ),
                                     ), 
@@ -760,7 +774,7 @@ class _profile_screenState extends State<profile_screen> {
                                        "FAQ's",
                                        textAlign: TextAlign.left,
                                        style: TextStyle(
-                                          fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black,
+                                          fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black,
                                        ),
                                       ),
                                     ),     
@@ -772,7 +786,7 @@ class _profile_screenState extends State<profile_screen> {
                                       'Contact us',
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                          fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black,
+                                          fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black,
                                        ),
                                     )
                                   )
@@ -792,10 +806,10 @@ class _profile_screenState extends State<profile_screen> {
               padding: const EdgeInsets.all(12.0),
               child: Row(
                 children: [
-                  Text('For any queries,\nWhatsApp us:', style: TextStyle(fontSize: 12.9, fontWeight: FontWeight.bold, color: Colors.black)),
+                  Text('For any queries,\nWhatsApp us:', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black)),
                   Padding(
-                    padding: const EdgeInsets.only(top: 15.0),
-                    child: Text('9940937373', style: TextStyle(fontSize: 12.9, fontWeight: FontWeight.bold, color: Color(0xFF008ECC))),
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Text('9940937373', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Color(0xFF008ECC))),
                   ),
                 ],
               )
@@ -803,13 +817,173 @@ class _profile_screenState extends State<profile_screen> {
             SizedBox(height: 8.8),
             Container(
               alignment: Alignment.topLeft,
-              padding: const EdgeInsets.all(12.0),
-              child: Text('Due to current situation we are witnessing a huge surge in calls/e-mails. There may be a delay in response from our side. kindly bear with us    ', style: TextStyle(fontSize: 12.9, fontWeight: FontWeight.bold, color: Colors.black))
+              padding: const EdgeInsets.all(15.0),
+              child: Text('Due to current situation we are witnessing a huge surge in calls/e-mails. There may be a delay in response from our side. kindly bear with us    ', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black))
             ),                       
           ]
         )
       ),
     );
+  }
+
+  _editprofile(context) {
+    showModalBottomSheet(
+    context: context,
+    builder: (BuildContext bc) {
+      return Stack(
+        children: <Widget>[
+          Container(
+            height: 30.0,
+            width: double.infinity,
+            color: Colors.black54,
+          ),
+          Container(
+            decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )),
+          ),
+          
+          SizedBox(height: 20,),
+          Container(
+            margin: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 28.0),
+            child: Column(
+              children: [
+                Container(
+                   height: 43.0,
+                   child: TextField(
+                     autocorrect: true,
+                        decoration: InputDecoration(                                     
+                        labelText: 'First Name',
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Colors.black, width: 1.2)
+                        )
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 18.7,), 
+                  Container(
+                   height: 43.0,
+                   child: TextField(
+                     autocorrect: true,
+                        decoration: InputDecoration(                                     
+                        labelText: 'Last Name',
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Colors.black, width: 1.2)
+                        )
+                      ),
+                    ),
+                  ), 
+                  SizedBox(height: 18.7,), 
+                  Container(
+                   height: 43.0,
+                   child: TextField(
+                     autocorrect: true,
+                        decoration: InputDecoration(                                     
+                        labelText: 'Gender',
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Colors.black, width: 1.2)
+                        )
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 18.7,),
+                  Container(
+                   height: 43.0,
+                   child: TextField(
+                     autocorrect: true,
+                        decoration: InputDecoration(                                     
+                        labelText: 'Date of birth'.toUpperCase(),
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Colors.black, width: 1.2)
+                        )
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 18.7,),
+                  Container(
+                   height: 43.0,
+                   child: TextField(
+                     autocorrect: true,
+                        decoration: InputDecoration(                                     
+                        labelText: 'EMAIL ID',
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color: Colors.black, width: 1.2)
+                        )
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.height * 0.6,
+                    height: 42.0,
+                    child: RaisedButton(
+                      child: Text("Save", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),),
+                        color: Color(0xff008ecc),
+                        textColor: Colors.black,
+                        splashColor: Colors.white,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => profile_screen()),
+                          );
+                        },
+                      ),
+                    ) 
+
+                
+               
+                
+              ],
+            ),
+          )
+  
+        ],
+      );
+    });
   }
 }
 
@@ -832,6 +1006,8 @@ class _paymentState extends State<payment> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         bottom: PreferredSize(
@@ -903,14 +1079,14 @@ class _paymentState extends State<payment> {
           children: [
             UserAccountsDrawerHeader(
               accountName: Text(
-                'Username',
+                'Adhoc_Ecommerce',
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.normal,
                     color: Colors.black),
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF008ECC),
                 //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
               ),
               currentAccountPicture: CircleAvatar(
@@ -919,7 +1095,7 @@ class _paymentState extends State<payment> {
               accountEmail: null,
             ),
             ListTile(
-              title: new Text('Home'),
+              title: new Text('Home', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/home.svg',
                 height: 20.0,
@@ -929,12 +1105,12 @@ class _paymentState extends State<payment> {
               onTap: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => home()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
               },
             ),
             ListTile(
-              title: new Text('Wallet'),
+              title: new Text('Wallet', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/wallet.svg',
                 height: 20.0,
@@ -949,7 +1125,7 @@ class _paymentState extends State<payment> {
               },
             ),
             ListTile(
-              title: new Text('Shop by Category'),
+              title: new Text('Shop by Category', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/categories.svg',
                 height: 20.0,
@@ -964,7 +1140,7 @@ class _paymentState extends State<payment> {
               },
             ),
             ListTile(
-              title: new Text('My Orders'),
+              title: new Text('My Orders', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/checklist.svg',
                 height: 20.0,
@@ -979,7 +1155,7 @@ class _paymentState extends State<payment> {
               },
             ),
             ListTile(
-              title: new Text('My Account'),
+              title: new Text('My Account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/man-user.svg',
                 height: 20.0,
@@ -995,10 +1171,10 @@ class _paymentState extends State<payment> {
             ),
             
             ExpansionTile(
-              title: new Text('Help and Setting'),
+              title: new Text('Help and Setting', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               children: [
                 ListTile(
-                  title: new Text('Customer Service'),
+                  title: new Text('Customer Service', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
                   leading: SvgPicture.asset(
                     'Assets/icons/support.svg',
                     height: 20.0,
@@ -1015,7 +1191,7 @@ class _paymentState extends State<payment> {
               ],
             ),
             ListTile(
-              title: new Text('Sign In'),
+              title: new Text('Sign In', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/in.svg',
                 height: 20.0,
@@ -1090,6 +1266,8 @@ class _delivery_addState extends State<delivery_add> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontFamily: 'Roboto',
+            fontSize: 22
           ),
         ),
         bottom: PreferredSize(
@@ -1161,14 +1339,14 @@ class _delivery_addState extends State<delivery_add> {
           children: [
             UserAccountsDrawerHeader(
               accountName: Text(
-                'Username',
+                'Adhoc_Ecommerce',
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.normal,
                     color: Colors.black),
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF008ECC),
                 //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
               ),
               currentAccountPicture: CircleAvatar(
@@ -1177,7 +1355,7 @@ class _delivery_addState extends State<delivery_add> {
               accountEmail: null,
             ),
             ListTile(
-              title: new Text('Home'),
+              title: new Text('Home', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/home.svg',
                 height: 20.0,
@@ -1192,7 +1370,7 @@ class _delivery_addState extends State<delivery_add> {
               },
             ),
             ListTile(
-              title: new Text('Wallet'),
+              title: new Text('Wallet', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/wallet.svg',
                 height: 20.0,
@@ -1207,7 +1385,7 @@ class _delivery_addState extends State<delivery_add> {
               },
             ),
             ListTile(
-              title: new Text('Shop by Category'),
+              title: new Text('Shop by Category', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/categories.svg',
                 height: 20.0,
@@ -1222,7 +1400,7 @@ class _delivery_addState extends State<delivery_add> {
               },
             ),
             ListTile(
-              title: new Text('My Orders'),
+              title: new Text('My Orders', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/checklist.svg',
                 height: 20.0,
@@ -1237,7 +1415,7 @@ class _delivery_addState extends State<delivery_add> {
               },
             ),
             ListTile(
-              title: new Text('My Account'),
+              title: new Text('My Account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/man-user.svg',
                 height: 20.0,
@@ -1253,10 +1431,10 @@ class _delivery_addState extends State<delivery_add> {
             ),
             
             ExpansionTile(
-              title: new Text('Help and Setting'),
+              title: new Text('Help and Setting', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               children: [
                 ListTile(
-                  title: new Text('Customer Service'),
+                  title: new Text('Customer Service', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
                   leading: SvgPicture.asset(
                     'Assets/icons/support.svg',
                     height: 20.0,
@@ -1273,7 +1451,7 @@ class _delivery_addState extends State<delivery_add> {
               ],
             ),
             ListTile(
-              title: new Text('Sign In'),
+              title: new Text('Sign In', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/in.svg',
                 height: 20.0,
@@ -1356,6 +1534,8 @@ class _orderState extends State<order> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         bottom: PreferredSize(
@@ -1427,14 +1607,14 @@ class _orderState extends State<order> {
           children: [
             UserAccountsDrawerHeader(
               accountName: Text(
-                'Username',
+                'Adhoc_Ecommerce',
                 style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.normal,
+                    fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF008ECC),
                 //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
               ),
               currentAccountPicture: CircleAvatar(
@@ -1443,7 +1623,7 @@ class _orderState extends State<order> {
               accountEmail: null,
             ),
             ListTile(
-              title: new Text('Home'),
+              title: new Text('Home', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/home.svg',
                 height: 20.0,
@@ -1453,12 +1633,12 @@ class _orderState extends State<order> {
               onTap: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => home()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
               },
             ),
             ListTile(
-              title: new Text('Wallet'),
+              title: new Text('Wallet', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/wallet.svg',
                 height: 20.0,
@@ -1473,7 +1653,7 @@ class _orderState extends State<order> {
               },
             ),
             ListTile(
-              title: new Text('Shop by Category'),
+              title: new Text('Shop by Category', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/categories.svg',
                 height: 20.0,
@@ -1488,7 +1668,7 @@ class _orderState extends State<order> {
               },
             ),
             ListTile(
-              title: new Text('My Orders'),
+              title: new Text('My Orders', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/checklist.svg',
                 height: 20.0,
@@ -1503,7 +1683,7 @@ class _orderState extends State<order> {
               },
             ),
             ListTile(
-              title: new Text('My Account'),
+              title: new Text('My Account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/man-user.svg',
                 height: 20.0,
@@ -1518,10 +1698,10 @@ class _orderState extends State<order> {
               },
             ),
             ExpansionTile(
-              title: new Text('Help and Setting'),
+              title: new Text('Help and Setting', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               children: [
                 ListTile(
-                  title: new Text('Customer Service'),
+                  title: new Text('Customer Service', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
                   leading: SvgPicture.asset(
                     'Assets/icons/support.svg',
                     height: 20.0,
@@ -1538,7 +1718,7 @@ class _orderState extends State<order> {
               ],
             ),
             ListTile(
-              title: new Text('Sign In'),
+              title: new Text('Sign In', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/in.svg',
                 height: 20.0,
@@ -1603,6 +1783,8 @@ class _walletState extends State<wallet> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontFamily: 'Roboto',
+            fontSize: 22
           ),
         ),
         bottom: PreferredSize(
@@ -1674,14 +1856,14 @@ class _walletState extends State<wallet> {
           children: [
             UserAccountsDrawerHeader(
               accountName: Text(
-                'Username',
+                'Adhoc_Ecommerce',
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.normal,
                     color: Colors.black),
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF008ECC),
                 //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
               ),
               currentAccountPicture: CircleAvatar(
@@ -1690,7 +1872,7 @@ class _walletState extends State<wallet> {
               accountEmail: null,
             ),
             ListTile(
-              title: new Text('Home'),
+              title: new Text('Home', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/home.svg',
                 height: 20.0,
@@ -1700,12 +1882,12 @@ class _walletState extends State<wallet> {
               onTap: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => home()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
               },
             ),
             ListTile(
-              title: new Text('Wallet'),
+              title: new Text('Wallet', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/wallet.svg',
                 height: 20.0,
@@ -1720,7 +1902,7 @@ class _walletState extends State<wallet> {
               },
             ),
             ListTile(
-              title: new Text('Shop by Category'),
+              title: new Text('Shop by Category', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/categories.svg',
                 height: 20.0,
@@ -1735,7 +1917,7 @@ class _walletState extends State<wallet> {
               },
             ),
             ListTile(
-              title: new Text('My Orders'),
+              title: new Text('My Orders', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/checklist.svg',
                 height: 20.0,
@@ -1750,7 +1932,7 @@ class _walletState extends State<wallet> {
               },
             ),
             ListTile(
-              title: new Text('My Account'),
+              title: new Text('My Account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/man-user.svg',
                 height: 20.0,
@@ -1766,10 +1948,10 @@ class _walletState extends State<wallet> {
             ),
             
             ExpansionTile(
-              title: new Text('Help and Setting'),
+              title: new Text('Help and Setting', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               children: [
                 ListTile(
-                  title: new Text('Customer Service'),
+                  title: new Text('Customer Service', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
                   leading: SvgPicture.asset(
                     'Assets/icons/support.svg',
                     height: 20.0,
@@ -1786,7 +1968,7 @@ class _walletState extends State<wallet> {
               ],
             ),
             ListTile(
-              title: new Text('Sign In'),
+              title: new Text('Sign In', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/in.svg',
                 height: 20.0,
@@ -1838,3 +2020,4 @@ class _walletState extends State<wallet> {
     );
   }
 }
+

@@ -1,8 +1,9 @@
+import 'package:badges/badges.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecomm_adhoc/home_screen/offers.dart';
 import 'package:ecomm_adhoc/home_screen/profile.dart';
-
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'cart.dart';
 
@@ -22,11 +24,22 @@ class home extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      builder: (context, widget) => ResponsiveWrapper.builder(
+          BouncingScrollWrapper.builder(context, widget),
+          maxWidth: 1300,
+          minWidth: 550,
+          defaultScale: true,
+          breakpoints: [
+            ResponsiveBreakpoint.resize(450, name: MOBILE),
+            ResponsiveBreakpoint.autoScale(800, name: TABLET),
+            ResponsiveBreakpoint.autoScale(1000, name: TABLET),
+            ResponsiveBreakpoint.resize(1200, name: DESKTOP),
+            ResponsiveBreakpoint.autoScale(2460, name: "4K"),
+          ],
+          background: Container(color: Color(0xFFF5F5F5))),
+      theme: Theme.of(context).copyWith(platform: TargetPlatform.android),
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-      ),
     );
   }
 }
@@ -47,73 +60,22 @@ class _HomePageState extends State<HomePage> {
     "Assets/images/banner7.jpg",
   ];
 
-  List<Product> products = [
-    Product(
-        image: "Assets/images/amul-pasteurised-butter-500.jpeg",
-        description:
-            "Who doesn't like a chunk of creamy, velvety, smooth and mouth-watering butter? Made with fresh ingredients, Amul Pasteurised Butter is a multi-purpose butter that can be used as a spread on bread, paratha, roti, naan and sandwiches. It also makes an excellent topping for Pav-bhaji, dal, soups, salads, rice as well as a great cooking medium for butter Paneer, Dal Makhni and a variety of delightful recipes. So what are you waiting for? Buy this product online today!",
-        price: "218.00",
-        productName: "Amul Pasteurised Butter"),
-    Product(
-        image: "Assets/images/trust-classic-sulphurless-sugar.jpeg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "46.00",
-        productName: "Trust Classic Sulphurless Sugar 1 kg"),
-    Product(
-        image: "Assets/images/kohinoor-charminar-select-basmati-rice.jpeg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "395.00",
-        productName: "Kohinoor Basmati Rice 5 kg"),
-    Product(
-        image: "Assets/images/surti-kolam-rice-10.jpg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "539.00",
-        productName: "Surti Kolam Rice 10 kg"),
-    Product(
-        image: "Assets/images/eveready-red-1015-aa-carbon-zinc-batteries.jpg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "109.00",
-        productName: "Eveready Red 1015 (Pack of 10)"),
-    Product(
-        image: "Assets/images/durex-extra-thin-condoms-10-pcs.jpg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "148.00",
-        productName: "Durex Extra Thin Condoms 10 pcs"),
-    Product(
-        image: "Assets/images/amul-lite-milk-fat-spread-500gm.jpg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "63.00",
-        productName: "Amul Masti Dahi 1 kg (Pouch)"),
-    Product(
-        image: "Assets/images/moov-pain-relief-specialist-spray-35.jpg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "135.85",
-        productName: "Moov Pain Relief Specialist Spray 35 g"),
-    Product(
-        image: "Assets/images/moov-pain-relief-cream.jpg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "148.25",
-        productName: "Moov Pain Relief Cream 50 g"),
-    Product(
-        image: "Assets/images/monster-energy-drink-350.jpg",
-        description:
-            "Repudiandae quibusdam quis harum odit.Autem sunt sit. Neque sapiente officia laudantium voluptatem dolores itaque dolore odio. Voluptatem reprehenderit beatae eum eligendi dolorem laborum voluptate nihil vel.",
-        price: "73.47",
-        productName: "Monster Energy Drink 350 ml (Can)"),
-  ];
+  
 
   GlobalKey<ScaffoldState> drawerKey = GlobalKey();
 
+  int _counter = 0;
+  
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    
+
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.white,
       statusBarBrightness: Brightness.light,
@@ -131,6 +93,8 @@ class _HomePageState extends State<HomePage> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         bottom: PreferredSize(
@@ -141,8 +105,9 @@ class _HomePageState extends State<HomePage> {
             child: TextField(
               autocorrect: true,
               decoration: InputDecoration(
+                suffixIcon: Icon(EvaIcons.listOutline, color: Color(0xFF000000),),
                   hintText: 'Search essentials, groceries and more ...',
-                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14, fontFamily: 'Roboto'),
                   filled: true,
                   fillColor: Colors.white,
                   enabledBorder: OutlineInputBorder(
@@ -182,7 +147,12 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white,
             ),
           ),
-          IconButton(
+          Badge(
+            position: BadgePosition.topEnd(top: 5, end: 8),
+            animationDuration: Duration(milliseconds: 300),
+            animationType: BadgeAnimationType.slide,
+            badgeContent: Text(_counter.toString(), style: TextStyle(color: Colors.white),),
+            child: IconButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -194,6 +164,8 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white,
             ),
           ),
+         )
+          
         ],
       ),
       drawerEdgeDragWidth: 0,
@@ -201,24 +173,45 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text(
-                'Username',
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black),
+              accountName: Container(
+                child: FlatButton(
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      side: BorderSide(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return profile();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'CREATE ACCOUNT',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFF008ECC),
                 //image: DecorationImage(image: NetworkImage('https://images.unsplash.com/photo-1502810190503-8303352d0dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'), fit: BoxFit.cover)
               ),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('Assets/images/profile.jfif')
+               backgroundColor: 
+                 Theme.of(context).platform == TargetPlatform.iOS
+                          ? Colors.blue
+                          : Colors.white,
+                          child: SvgPicture.asset('Assets/icons/user.svg', height: 40, width: 40, color: Color(0xFF008ECC), allowDrawingOutsideViewBox: true,),
               ),
               accountEmail: null,
             ),
             ListTile(
-              title: new Text('Home'),
+              title: new Text('Home', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/home.svg',
                 height: 20.0,
@@ -231,7 +224,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: new Text('Shop by Category'),
+              title: new Text('Shop by Category', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/categories.svg',
                 height: 20.0,
@@ -241,12 +234,12 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => profile()),
+                  MaterialPageRoute(builder: (context) => offers()),
                 );
               },
             ),
             ListTile(
-              title: new Text('My Orders'),
+              title: new Text('My Orders', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/checklist.svg',
                 height: 20.0,
@@ -256,12 +249,12 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => profile()),
+                  MaterialPageRoute(builder: (context) => cart_fill()),
                 );
               },
             ),
             ListTile(
-              title: new Text('My Account'),
+              title: new Text('My Account', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/man-user.svg',
                 height: 20.0,
@@ -271,12 +264,12 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => profile()),
+                  MaterialPageRoute(builder: (context) => profile_screen()),
                 );
               },
             ),
             ListTile(
-              title: new Text('My Subscription'),
+              title: new Text('My Subscription', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/renew.svg',
                 height: 20.0,
@@ -291,10 +284,10 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ExpansionTile(
-              title: new Text('Help and Setting'),
+              title: new Text('Help and Setting', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               children: [
                 ListTile(
-                  title: new Text('Customer Service'),
+                  title: new Text('Customer Service', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
                   leading: SvgPicture.asset(
                     'Assets/icons/support.svg',
                     height: 20.0,
@@ -311,7 +304,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             ListTile(
-              title: new Text('Sign In'),
+              title: new Text('Sign In', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),),
               leading: SvgPicture.asset(
                 'Assets/icons/in.svg',
                 height: 20.0,
@@ -332,78 +325,78 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                //SizedBox(
-                //height: 70,
-                //child: ListView(
-                //scrollDirection: Axis.horizontal,
-                //shrinkWrap: true,
-                //children: <Widget>[
-                //CategoryItem(
-                //icon: EvaIcons.giftOutline,
-                //size: 70,
-                //margin: EdgeInsets.only(
-                //left: 10,
-                //),
-                //padding: EdgeInsets.all(10),
-                //backgroundColor: Color(0xFFffe291),
-                //),
-                //CategoryItem(
-                //icon: EvaIcons.headphonesOutline,
-                //size: 70,
-                //margin: EdgeInsets.only(
-                //left: 10,
-                //),
-                //padding: EdgeInsets.all(10),
-                //backgroundColor: Color(0xFF91bfff),
-                //),
-                //CategoryItem(
-                //icon: EvaIcons.hardDriveOutline,
-                //size: 70,
-                //margin: EdgeInsets.only(
-                //left: 10,
-                //),
-                //padding: EdgeInsets.all(10),
-                //backgroundColor: Color(0xFFff91c1),
-                //),
-                //CategoryItem(
-                //icon: EvaIcons.printerOutline,
-                //size: 70,
-                //margin: EdgeInsets.only(
-                //left: 10,
-                //),
-                //padding: EdgeInsets.all(10),
-                //backgroundColor: Color(0xFF5340de),
-                //),
-                //CategoryItem(
-                //icon: EvaIcons.videoOutline,
-                //size: 70,
-                //margin: EdgeInsets.only(
-                //left: 10,
-                //),
-                //padding: EdgeInsets.all(10),
-                //backgroundColor: Color(0xFF47e6a9),
-                //),
-                //CategoryItem(
-                //icon: EvaIcons.umbrellaOutline,
-                //size: 70,
-                //margin: EdgeInsets.only(
-                //left: 10,
-                //),
-                //padding: EdgeInsets.all(10),
-                //backgroundColor: Color(0xFFff788e),
-                //),
-                //CategoryItem(
-                //icon: EvaIcons.tvOutline,
-                //size: 70,
-                //margin: EdgeInsets.only(
-                //left: 10,
-                //),
-                //padding: EdgeInsets.all(10),
-                //backgroundColor: Color(0xFFff9378),
-                //),
-                //],
-                //),
-                //),
+                // SizedBox(
+                // height: 70,
+                // child: ListView(
+                // scrollDirection: Axis.horizontal,
+                // shrinkWrap: true,
+                // children: <Widget>[
+                // CategoryItem(
+                // icon: EvaIcons.giftOutline,
+                // size: 70,
+                // margin: EdgeInsets.only(
+                // left: 10,
+                // ),
+                // padding: EdgeInsets.all(10),
+                // backgroundColor: Color(0xFFffe291),
+                // ),
+                // CategoryItem(
+                // icon: EvaIcons.headphonesOutline,
+                // size: 70,
+                // margin: EdgeInsets.only(
+                // left: 10,
+                // ),
+                // padding: EdgeInsets.all(10),
+                // backgroundColor: Color(0xFF91bfff),
+                // ),
+                // CategoryItem(
+                // icon: EvaIcons.hardDriveOutline,
+                // size: 70,
+                // margin: EdgeInsets.only(
+                // left: 10,
+                // ),
+                // padding: EdgeInsets.all(10),
+                // backgroundColor: Color(0xFFff91c1),
+                // ),
+                // CategoryItem(
+                // icon: EvaIcons.printerOutline,
+                // size: 70,
+                // margin: EdgeInsets.only(
+                // left: 10,
+                // ),
+                // padding: EdgeInsets.all(10),
+                // backgroundColor: Color(0xFF5340de),
+                // ),
+                // CategoryItem(
+                // icon: EvaIcons.videoOutline,
+                // size: 70,
+                // margin: EdgeInsets.only(
+                // left: 10,
+                // ),
+                // padding: EdgeInsets.all(10),
+                // backgroundColor: Color(0xFF47e6a9),
+                // ),
+                // CategoryItem(
+                // icon: EvaIcons.umbrellaOutline,
+                // size: 70,
+                // margin: EdgeInsets.only(
+                // left: 10,
+                // ),
+                // padding: EdgeInsets.all(10),
+                // backgroundColor: Color(0xFFff788e),
+                // ),
+                // CategoryItem(
+                // icon: EvaIcons.tvOutline,
+                // size: 70,
+                // margin: EdgeInsets.only(
+                // left: 10,
+                // ),
+                // padding: EdgeInsets.all(10),
+                // backgroundColor: Color(0xFFff9378),
+                // ),
+                // ],
+                // ),
+                // ),
 
                 SizedBox(
                   height: 05,
@@ -470,9 +463,9 @@ class _HomePageState extends State<HomePage> {
                             "Shop from Top Categories",
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 20,
                                 color: Colors.black,
-                                fontWeight: FontWeight.w600),
+                                fontWeight: FontWeight.w800),
                           ),
                         ),
                       ),
@@ -483,71 +476,98 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            children: [
-                              Container(
-                                height: 160,
-                                width: 130,
-                                margin: const EdgeInsets.all(3),
-                                decoration: new BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    image: DecorationImage(
-                                        image: AssetImage('Assets/images/Groceries.jpg'),
-                                        fit: BoxFit.cover)),
-                              ),
-                              Text(
-                                'Groceries',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          InkWell(
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 160,
+                                  width: 130,
+                                  margin: const EdgeInsets.all(3),
+                                  decoration: new BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10.0)),
+                                      image: DecorationImage(
+                                          image: AssetImage('Assets/images/Groceries.jpg'),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Text(
+                                  'Groceries',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => offers()),
+                              );
+                            },
                           ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 160,
-                                width: 130,
-                                margin: const EdgeInsets.all(3),
-                                decoration: new BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    image: DecorationImage(
-                                        image: AssetImage('Assets/images/Corvid_Essentials.webp'),
-                                        fit: BoxFit.fill)),
-                              ),
-                              Text(
-                                'Covid Essentials',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          InkWell(
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 160,
+                                  width: 130,
+                                  margin: const EdgeInsets.all(3),
+                                  decoration: new BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10.0)),
+                                      image: DecorationImage(
+                                          image: AssetImage('Assets/images/Corvid_Essentials.webp'),
+                                          fit: BoxFit.fill)),
+                                ),
+                                Text(
+                                  'Covid Essentials',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => offers()),
+                              );
+                            },
                           ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 160,
-                                width: 130,
-                                margin: const EdgeInsets.all(3),
-                                decoration: new BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    image: DecorationImage(
-                                        image: AssetImage('Assets/images/Fruits&Vegetables.jfif'),
-                                        fit: BoxFit.cover)),
-                              ),
-                              Text(
-                                'Fruits & Vegetables',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          InkWell(
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 160,
+                                  width: 130,
+                                  margin: const EdgeInsets.all(3),
+                                  decoration: new BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10.0)),
+                                      image: DecorationImage(
+                                          image: AssetImage('Assets/images/Fruits&Vegetables.jfif'),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Text(
+                                  'Fruits & Veget..',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => offers()),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -557,68 +577,95 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            children: [
-                              Container(
-                                height: 160,
-                                width: 130,
-                                margin: const EdgeInsets.all(3),
-                                decoration: new BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    image: DecorationImage(
-                                        image: AssetImage('Assets/images/Tea.jfif'),
-                                        fit: BoxFit.cover)),
-                              ),
-                              Text('Tea',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
-                            ],
+                          InkWell(
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 160,
+                                  width: 130,
+                                  margin: const EdgeInsets.all(3),
+                                  decoration: new BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10.0)),
+                                      image: DecorationImage(
+                                          image: AssetImage('Assets/images/Tea.jfif'),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Text('Tea',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold)),
+                              ],
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => offers()),
+                              );
+                            },
                           ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 160,
-                                width: 130,
-                                margin: const EdgeInsets.all(3),
-                                decoration: new BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    image: DecorationImage(
-                                        image: AssetImage('Assets/images/biscuit&Cookies.jfif'),
-                                        fit: BoxFit.cover)),
-                              ),
-                              Text('Biscuit & Cookies',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
-                            ],
+                          InkWell(
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 160,
+                                  width: 130,
+                                  margin: const EdgeInsets.all(3),
+                                  decoration: new BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10.0)),
+                                      image: DecorationImage(
+                                          image: AssetImage('Assets/images/biscuit&Cookies.jfif'),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Text('Biscuit & Cookies',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold)),
+                              ],
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => offers()),
+                              );
+                            },
                           ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 160,
-                                width: 130,
-                                margin: const EdgeInsets.all(3),
-                                decoration: new BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    image: DecorationImage(
-                                        image: AssetImage('Assets/images/Flours.jfif'),
-                                        fit: BoxFit.cover)),
-                              ),
-                              Text('Flours & Sooji ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
-                            ],
+                          InkWell(
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 160,
+                                  width: 130,
+                                  margin: const EdgeInsets.all(3),
+                                  decoration: new BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10.0)),
+                                      image: DecorationImage(
+                                          image: AssetImage('Assets/images/Flours.jfif'),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Text('Flours & Sooji ',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold)),
+                              ],
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => offers()),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -647,30 +694,22 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               "Top Deals",
                               style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 20,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.w600),
+                                  fontWeight: FontWeight.w800),
                             ),
                           ),
                           Container(
                             padding: const EdgeInsets.all(2.0),
                             margin: const EdgeInsets.all(8.0),
                             child: InkWell(
-                              child: Row(
-                                children: <Widget>[
-                                  Text(
-                                    "VIEW ALL",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.red,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: 15,
+                              child: Text(
+                                "VIEW ALL",
+                                style: TextStyle(
+                                    fontSize: 16,
                                     color: Colors.red,
-                                  ),
-                                ],
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold),
                               ),
                               onTap: () {
                                 Navigator.push(
@@ -741,9 +780,9 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     "Shop Groceries",
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         color: Colors.black,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w800),
                   ),
                 ),
 
@@ -782,7 +821,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(width: 5),
                                 Container(
-                                  child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12),),
+                                  child: Text('Fruits &\nVegetables', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                 )
                               ],
                             ),
@@ -819,7 +858,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(width: 5),
                                 Container(
-                                  child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12),),
+                                  child: Text('Dairy & Bakery', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                 )
                               ],
                             ),
@@ -856,7 +895,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(width: 5),
                                 Container(
-                                  child: Text('Staples', style: TextStyle(fontSize: 12),),
+                                  child: Text('Staples', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                 )
                               ],
                             ),
@@ -893,7 +932,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(width: 5),
                                 Container(
-                                  child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12),),
+                                  child: Text('Snacks &\nBranded Foods', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                 )
                               ],
                             ),
@@ -931,7 +970,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(width: 5),
                                 Container(
-                                  child: Text('Personal \nCare', style: TextStyle(fontSize: 12),),
+                                  child: Text('Personal \nCare', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                 )
                               ],
                             ),
@@ -968,7 +1007,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(width: 5),
                                 Container(
-                                  child: Text('Home Care', style: TextStyle(fontSize: 12),),
+                                  child: Text('Home Care', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),),
                                 )
                               ],
                             ),
@@ -1274,9 +1313,9 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     "Top Deals for You",
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         color: Colors.black,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w800),
                   ),
                 ),
 
@@ -1340,9 +1379,9 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     "Best Deals for You",
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         color: Colors.black,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w800),
                   ),
                 ),
 
@@ -1406,9 +1445,9 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     "Exclusive Deals for You",
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         color: Colors.black,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w800),
                   ),
                 ),
 
@@ -1468,7 +1507,7 @@ class _HomePageState extends State<HomePage> {
         footer: new Footer(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
-              child: Text('2021 All rights reverved, Ecommerce Adhoc', style: TextStyle(fontSize: 10))
+              child: Text('2021 All rights reverved, Ecommerce Adhoc', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600))
             )
           )
       ),
@@ -1477,6 +1516,7 @@ class _HomePageState extends State<HomePage> {
 
   createWishListItem() {
     return Container(
+      // height: 220,
       margin: EdgeInsets.symmetric(horizontal: 4),
       decoration:
           BoxDecoration(border: Border.all(color: Colors.grey.shade100)),
@@ -1485,9 +1525,10 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Expanded(
             child: Container(
-              width: 120,
+              width: 140,
+              height: 180,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.grey,
                 image: DecorationImage(
                     image: AssetImage(
                         "Assets/images/parle-g-gold-biscuits-1.jpeg"),
@@ -1506,302 +1547,87 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 14),
+                      fontSize: 15),
                 ),
-                SizedBox(width: 4),
+                SizedBox(width: 5),
                 Text(
                   "\$115.00",
                   style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 12,
+                      color: Colors.black87,
+                      fontSize: 14,
                       decoration: TextDecoration.lineThrough),
                 ),
               ],
             ),
           ),
-          //SizedBox(height: 4),
+          SizedBox(height: 4),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 4),
             child: Text(
               "Save \$ 38.33",
-              style: TextStyle(color: Colors.red.shade400, fontSize: 10),
+              style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold ,fontSize: 13),
             ),
           ),
-          //SizedBox(height: 4),
+          SizedBox(height: 4),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 4),
             child: Text(
-              "Parle-G Gold Bisuits 1KG",
-              style: TextStyle(color: Colors.black, fontSize: 10),
+              "Parle-G Gold \nBisuits 1KG",
+              style: TextStyle(color: Colors.black, fontSize: 13, fontWeight: FontWeight.w800),
             ),
           ),
           SizedBox(height: 2),
           Container(
-            height: 28,
-            width: 120,
-            margin: EdgeInsets.all(4),
-              child: RaisedButton(
-                child: Container(
-                  alignment: Alignment.center,
-                    margin: const EdgeInsets.all(5.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.only(left: 20.0),
-                            child: Text(
-                              "ADD",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                            ),
-                          ),
-                          //Spacer(flex: 5),
-                        InkWell(
-                          child: Container(
-                            width: 28,
-                            height: 28,
-                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(0xFF1B9AD1),                            
-                            ),
-                            child: Icon(Icons.add, color: Colors.white, size: 14.8,)),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => cart_fill()),
-                              );
-                            },
-                        )
-                      ],
+            height: 35,
+            width: 140,
+            // margin: EdgeInsets.all(4),
+              child: Container(
+                padding: const EdgeInsets.all(5.0),  
+                decoration: BoxDecoration(
+                  color: Color(0xFF008ECC),
+                  borderRadius: BorderRadius.circular(5.0)
+                ),
+                alignment: Alignment.center,
+                margin: EdgeInsets.all(2),
+                child: Row(
+                  children: [
+                  Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "ADD",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.white),
+                      ),
                     ),
+                    Spacer(flex: 2),
+                    Container(
+                      height: 28,
+                      width: 28,
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.all(1.0),
+                        child: RaisedButton(
+                          padding: EdgeInsets.zero,
+                          shape: CircleBorder(),
+                          color: Color(0xFF1B9AD1),
+                          child: Icon(Icons.add, size: 17, color: Colors.white,),
+                            onPressed: () {
+                            setState(() {
+                              _counter++;
+                              // doMult();
+                            });
+                            }, 
+                        ),
+                      )
+                    ],
                   ),
-                color: Color(0xFF008ECC),
-                textColor: Colors.black,
-                splashColor: Colors.white,
-                onPressed: () {
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => cart_fill()),
-                );
-              },
-            ),
-          ),
+                ),
+              ),
         ],
       ),
     );
   }
 }
 
-class ProductPage extends StatelessWidget {
-  final Product product;
-
-  ProductPage({@required this.product});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Ecommerce',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Colors.blue,
-        brightness: Brightness.light,
-        elevation: 0,
-        actionsIconTheme: IconThemeData(color: Colors.white),
-        iconTheme: IconThemeData(color: Colors.white),
-      ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
-                ),
-                child: Text(
-                  product.productName,
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              Hero(
-                tag: product.image,
-                child: AspectRatio(
-                  aspectRatio: 1 / 1,
-                  child: Image(
-                    image: AssetImage(product.image),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Text(
-                  "You Save 36.87",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 4),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      "${product.price}\$",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14),
-                    ),
-                    SizedBox(width: 4),
-                    Text(
-                      "\$115.00",
-                      style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 12,
-                          decoration: TextDecoration.lineThrough),
-                    ),
-                    SizedBox(width: 4),
-                    Text(
-                      "(No all. of TAX)",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(
-                      child: OutlineButton.icon(
-                        icon: Icon(EvaIcons.shoppingBagOutline),
-                        label: Text("Cart"),
-                        onPressed: () {},
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: RaisedButton.icon(
-                        textColor: Colors.black,
-                        color: Colors.blue,
-                        icon: Icon(EvaIcons.creditCard),
-                        label: Text("Buy Now"),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Column(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    margin: const EdgeInsets.all(4.0),
-                    child: Text(
-                      'Descriptions',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    margin: const EdgeInsets.all(4.0),
-                    child: Text(
-                      product.productName,
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(8.0),
-                    child: Text(
-                      product.description,
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Product {
-  final String productName;
-  final String image;
-  final String price;
-  final String description;
-
-  Product(
-      {@required this.description,
-      @required this.image,
-      @required this.price,
-      @required this.productName});
-}
-
-class CategoryItem extends StatelessWidget {
-  final Color backgroundColor;
-  final Color iconColor;
-  final double size;
-  final IconData icon;
-
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
-
-  CategoryItem(
-      {@required this.backgroundColor,
-      @required this.size,
-      @required this.icon,
-      @required this.margin,
-      @required this.padding,
-      this.iconColor = Colors.white});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      padding: padding,
-      margin: margin,
-      child: Icon(
-        icon,
-        color: iconColor,
-      ),
-    );
-  }
-}

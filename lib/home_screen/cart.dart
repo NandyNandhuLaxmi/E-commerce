@@ -1,6 +1,8 @@
+import 'package:badges/badges.dart';
 import 'package:ecomm_adhoc/home_screen/profile.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class cart extends StatefulWidget {
@@ -83,6 +85,28 @@ class cart_fill extends StatefulWidget {
 }
 
 class _cart_fillState extends State<cart_fill> {
+  int _counter = 1;
+   var num1 = 75.68; 
+   var num2 = 2.00; 
+   var res = 75.68;
+
+  void doMult() {
+    setState(() {
+      double out = num1 * num2;
+      res = out;
+    });
+
+  }
+
+  void doDiv() {
+    setState(() {
+      double out = num1 / num2;
+      res = out;
+    });
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,6 +117,8 @@ class _cart_fillState extends State<cart_fill> {
           "Ecommerce",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
         backgroundColor: Color(0xFF008ECC),
@@ -120,12 +146,16 @@ class _cart_fillState extends State<cart_fill> {
               color: Colors.white,
             ),
           ),
-          IconButton(
+          Badge(
+            position: BadgePosition.topEnd(top: 10, end: 8),
+            animationDuration: Duration(milliseconds: 300),
+            animationType: BadgeAnimationType.slide,
+            badgeContent: Text(_counter.toString(), style: TextStyle(color: Colors.white),),         
+            child: IconButton(
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => cart()),
-                (Route<dynamic> route) => true,
               );
             },
             icon: Icon(
@@ -133,6 +163,7 @@ class _cart_fillState extends State<cart_fill> {
               color: Colors.white,
             ),
           ),
+         )
         ],
       ),
       body: Column(
@@ -156,8 +187,8 @@ class _cart_fillState extends State<cart_fill> {
             child: Row(
               children: [
                 Container(
-                  height: 70,
-                  width: 70,  
+                  height: 100,
+                  width: 100,  
                   alignment: Alignment.topLeft,              
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -181,7 +212,7 @@ class _cart_fillState extends State<cart_fill> {
                             "Parle-G Gold Biscuits 1 KG",
                             maxLines: 2,
                             softWrap: true,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 17.5, fontWeight: FontWeight.w700, fontFamily: 'Roboto'),
                           ),
                         ),
                         SizedBox(height: 8),
@@ -192,15 +223,17 @@ class _cart_fillState extends State<cart_fill> {
                                 "\$76.67",
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roboto',
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
-                                width: 5,
+                                width: 8,
                               ),
                               Text(
                                 "\$115.00",
                                 style: TextStyle(
-                                    color: Colors.black54,
+                                    color: Colors.black87,
                                     fontSize: 12,
                                     decoration: TextDecoration.lineThrough),
                               ),
@@ -216,13 +249,48 @@ class _cart_fillState extends State<cart_fill> {
                           ),
                         ),
                         SizedBox(
-                          width: 6,
+                          width: 8,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 220.0, top: 10.5),
-                          child: CartCounter()
+                        
+                        Container(
+                          alignment: Alignment.topRight,
+                          padding: const EdgeInsets.only(left: 195.0),
+                          margin: EdgeInsets.all(4),
+                          child: Container(
+                            child: Row(
+                              children: [
+                                buildRaisedButton(
+                                  color: Color(0xFF1B9AD1),
+                                  icon: Icons.remove,
+                                  press: () {
+                                    if (_counter > 1) {
+                                      setState(() {
+                                        _counter--;
+                                        doDiv();
+                                      });
+                                    }
+                                  }
+                                ),
+                                SizedBox(width: 2.0),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 3),
+                                  child: Text(_counter.toString().padLeft(2, "0"), style: TextStyle(fontSize: 15.8, fontWeight: FontWeight.w600, color: Colors.black),),
+                                ),
+                                SizedBox(width: 2.0),
+                                buildRaisedButton(
+                                  icon: Icons.add,
+                                  color: Color(0xFF1B9AD1),
+                                  press: () {
+                                    setState(() {
+                                      _counter++;
+                                      doMult();
+                                    });
+                                  }
+                                )
+                              ],
+                            ),
+                          ),
                         ),
-                        //Icon(Icons.add, size: 24, color: Colors.grey.shade700,
                       ],
                     ),
                   )
@@ -238,7 +306,7 @@ class _cart_fillState extends State<cart_fill> {
                 Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.all(10.0),
-                  child: Text('Payment Details', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16)),
+                  child: Text('Payment Details', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Roboto', fontSize: 18.7)),
                 ),
 
                 Container(
@@ -247,11 +315,12 @@ class _cart_fillState extends State<cart_fill> {
                     child: Column(
                       children: [
                         Container(
-                          padding: const EdgeInsets.fromLTRB(12, 5, 2, 4 ),
+                          // padding: const EdgeInsets.fromLTRB(12, 5, 30, 4 ),
                           child: Column(
                             //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     alignment: Alignment.topLeft,
@@ -260,25 +329,26 @@ class _cart_fillState extends State<cart_fill> {
                                       'MRP Total',
                                        textAlign: TextAlign.left,
                                        style: TextStyle(
-                                          fontSize: 13, fontWeight: FontWeight.normal, color: Colors.black,
+                                          fontSize: 15.7, fontWeight: FontWeight.w400, color: Colors.black,
                                         ),
                                       ),
                                     ),
                                     Container(
                                     alignment: Alignment.topRight,
-                                    padding: const EdgeInsets.only(left: 260),
+                                    padding: const EdgeInsets.all(5.0),
                                     child: Text(
-                                      "\$76.60",
-                                       textAlign: TextAlign.left,
+                                      '\u0024 $res',
+                                       textAlign: TextAlign.right,
                                        style: TextStyle(
-                                          fontSize: 13, fontWeight: FontWeight.normal, color: Colors.black
+                                          fontSize: 15.7, fontWeight: FontWeight.w500, color: Colors.black
                                         ),
                                       ),
                                     ),
                                 ],
                               ),
-                                Divider(color: Colors.black, indent: 2, endIndent: 25,),
+                                Divider(color: Colors.black, indent: 2, endIndent: 2,),
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
                                        alignment: Alignment.topLeft,
@@ -287,26 +357,27 @@ class _cart_fillState extends State<cart_fill> {
                                          'Discount',
                                          textAlign: TextAlign.left,
                                          style: TextStyle(
-                                            fontSize: 13, fontWeight: FontWeight.normal, color: Colors.black,
+                                            fontSize: 15.7, fontWeight: FontWeight.w400, color: Colors.black,
                                          ),
                                         ),
                                       ),
                                       Container(
                                         alignment: Alignment.topRight,
-                                        padding: const EdgeInsets.only(left: 270),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Text(
-                                          "\$9.40",
+                                          "\u0024 7.20",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
-                                          fontSize: 13, fontWeight: FontWeight.normal, color: Colors.black
+                                          fontSize: 15.7, fontWeight: FontWeight.w500, color: Colors.black
                                         ),
                                       ),
                                     ),
                                   ],
                                 ),
                                    
-                                Divider(color: Colors.black, indent: 2, endIndent: 25,),
+                                Divider(color: Colors.black, indent: 2, endIndent: 2,),
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
                                        alignment: Alignment.topLeft,
@@ -315,18 +386,19 @@ class _cart_fillState extends State<cart_fill> {
                                          "Total Amount",
                                          textAlign: TextAlign.left,
                                          style: TextStyle(
-                                            fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black,
+                                            fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black,
                                          ),
                                         ),
                                       ),
+                                      
                                       Container(
                                          alignment: Alignment.topRight,
-                                         padding: const EdgeInsets.only(left: 240),
+                                         padding: const EdgeInsets.all(5.0),
                                          child: Text(
-                                          "\$85.70",
+                                          "\u0024 $res",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
-                                          fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black
+                                          fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
                                         ),
                                       ),
                                     ),
@@ -341,8 +413,8 @@ class _cart_fillState extends State<cart_fill> {
                 ),
                 Container(
                   alignment: Alignment.topRight,
-                  padding: const EdgeInsets.only(right: 40.0, bottom: 3.0),
-                  child: Text('Save \$ 8.33', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.green.shade500))
+                  padding: const EdgeInsets.all(10.8),
+                  child: Text('Save \$ 8.33', style: TextStyle(fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.green.shade500))
                 )
               ]
             ),
@@ -358,7 +430,7 @@ class _cart_fillState extends State<cart_fill> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Text('\$85.70', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)),
+              child: Text('\u0024 $res', style: TextStyle(color: Colors.black, fontSize: 15.7, fontWeight: FontWeight.w600)),
             ),
                     
             Container(
@@ -367,13 +439,20 @@ class _cart_fillState extends State<cart_fill> {
               padding: const EdgeInsets.all(5.0),
 
               child: RaisedButton(
-                onPressed: toast,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DeliveryAddress()),
+                  );
+                },
                 splashColor: Colors.blue[50],
                 color: Color(0xFF1B9AD1),
                  child: Text(
                   "Place Order",
                    style: TextStyle(
                    color: Colors.white,
+                   fontFamily: 'Roboto',
+                   fontSize: 18,
                    fontWeight: FontWeight.w600),
                  ),
                 ),
@@ -383,11 +462,25 @@ class _cart_fillState extends State<cart_fill> {
       ),     
     );
   }
+
+  SizedBox buildRaisedButton({IconData icon, Color color, Null Function() press}) {
+    return SizedBox(
+      width: 22,
+      height: 22,
+      child: RaisedButton(
+        padding: EdgeInsets.zero,
+        shape: CircleBorder(),
+        color: Color(0xFF1B9AD1),
+        onPressed: press, 
+        child: Icon(icon, size: 15, color: Colors.white),
+      ),
+    );
+  }
 }
 
 void toast() {
     Fluttertoast.showToast(
-        msg: "updating",
+        msg: "Add",
         textColor: Colors.white,
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.BOTTOM,
@@ -396,60 +489,470 @@ void toast() {
     );
   }
 
-
-class CartCounter extends StatefulWidget {
+class DeliveryAddress extends StatefulWidget {
   @override
-  _CartCounterState createState() => _CartCounterState();
+  _DeliveryAddressState createState() => _DeliveryAddressState();
 }
 
-class _CartCounterState extends State<CartCounter> {
-  int numOfItems = 1;
+class _DeliveryAddressState extends State<DeliveryAddress> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        buildRaisedButton(
-          color: Color(0xFF1B9AD1),
-          icon: Icons.remove,
-          press: () {
-            if (numOfItems > 1) {
-              setState(() {
-                numOfItems--;
-              });
-            }
-          },
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 3),
-          child: Text(
-            // if our item is less  then 10 then  it shows 01 02 like that
-            numOfItems.toString().padLeft(2, "0"),
-            style: Theme.of(context).textTheme.headline6, 
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F5F5),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Ecommerce",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+            fontFamily: 'Roboto'
           ),
         ),
-        buildRaisedButton(
-            icon: Icons.add,
-            color: Color(0xFF1B9AD1),
-            press: () {
-              setState(() {
-                numOfItems++;
-              });
-            }),
-      ],
+        backgroundColor: Color(0xFF008ECC),
+        brightness: Brightness.light,
+        elevation: 0,
+        actionsIconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: Colors.white),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: Column(
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  height: 50,
+                  color: Colors.white,
+                  alignment: Alignment.topLeft,
+                  padding: const EdgeInsets.all(12.6),
+                  child: Text('Select Delivery Address', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold))
+                ),
+                SizedBox(height: 10),
+                Container(
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text('Payment Details', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16.7)),
+                    ),
+
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(12, 5, 30, 4 ),
+                              child: Column(
+                                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.topLeft,
+                                        padding: EdgeInsets.all(5.0),
+                                        child: Text(
+                                          'MRP Total',
+                                           textAlign: TextAlign.left,
+                                           style: TextStyle(
+                                              fontSize: 15.7, fontWeight: FontWeight.w400, color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                        alignment: Alignment.topRight,
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Text(
+                                          '\u0024 151',
+                                           textAlign: TextAlign.right,
+                                           style: TextStyle(
+                                              fontSize: 15.7, fontWeight: FontWeight.w500, color: Colors.black
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),   
+                                    Divider(color: Colors.black, indent: 2, endIndent: 2,),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                           alignment: Alignment.topLeft,
+                                           padding: EdgeInsets.all(5.0),
+                                           child: Text(
+                                             "Total Amount",
+                                             textAlign: TextAlign.left,
+                                             style: TextStyle(
+                                                fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black,
+                                             ),
+                                            ),
+                                          ),
+                                          
+                                          Container(
+                                             alignment: Alignment.topRight,
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Text(
+                                              "\u0024 151",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                              fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),                              
+                                  ],
+                                ),
+                              ),
+                          ]
+                        ),
+                      )
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(Icons.add),
+                            Text('ADD NEW ADDRESS', style: TextStyle(fontSize: 15.7, fontWeight: FontWeight.bold, color: Colors.black)),
+                          ],
+                        )
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => NewAddress()),
+                        );
+                      },
+                    )
+                  ]
+                ),
+              ),
+              ]
+            ),
+             
+          ),
+        ],
+      ),
+      bottomSheet: Container(
+        height: 40,
+        margin: EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text('\u0024 151', style: TextStyle(color: Colors.black, fontSize: 16.7, fontWeight: FontWeight.w600)),
+            ),
+                    
+            Container(
+              width: 150,
+              height: 40,
+              padding: const EdgeInsets.all(5.0),
+
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DeliveryAddress()),
+                  );
+                },
+                splashColor: Colors.blue[50],
+                color: Color(0xFF1B9AD1),
+                 child: Text(
+                  "Make Payment",
+                   style: TextStyle(
+                   color: Colors.white,
+                   fontSize: 16,
+                   fontWeight: FontWeight.w600),
+                 ),
+                ),
+            ),
+          ],
+        ),
+      ),
+      
     );
   }
+}
 
-  SizedBox buildRaisedButton({IconData icon, Function press, Color color}) {
-    return SizedBox(
-      width: 22,
-      height: 22,
-      child: RaisedButton(
-        padding: EdgeInsets.zero,
-        shape: CircleBorder(),
-        color: Color(0xFF1B9AD1),
-        onPressed: press,
-        child: Icon(icon, size: 15, color: Colors.white ),
+class NewAddress extends StatefulWidget {
+  @override
+  _NewAddressState createState() => _NewAddressState();
+}
+
+class _NewAddressState extends State<NewAddress> {
+  final TextEditingController pincode = new TextEditingController();
+  final TextEditingController city = new TextEditingController();
+  final TextEditingController state = new TextEditingController();
+  final TextEditingController firstname = new TextEditingController();
+  final TextEditingController lastname = new TextEditingController();
+  final TextEditingController address = new TextEditingController();
+  final TextEditingController landmark = new TextEditingController();
+  final TextEditingController phone_no = new TextEditingController();
+  
+  _printLatestValue() {
+    print('Second text field: ${pincode.text}');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F5F5),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Ecommerce",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color(0xFF008ECC),
+        brightness: Brightness.light,
+        elevation: 0,
+        actionsIconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: Colors.white),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Column(
+              children: [
+                
+                Container(
+                  padding: const EdgeInsets.all(10.0),
+                  alignment: Alignment.center,
+                  child: Text('Add Address', style: TextStyle(color: Color(0xFF008ECC), fontSize: 18, fontWeight: FontWeight.bold)),),
+                SizedBox(height: 20),
+                Container(
+                  height: 43.0,
+                    child: TextField(
+                      controller: pincode,
+                     autocorrect: true,
+                     decoration: InputDecoration(                                     
+                     labelText: 'Pincode',
+                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                     filled: true,
+                     fillColor: Colors.white,
+                     enabledBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Colors.black, width: 1.2)
+                     )
+                    ),
+                  ),
+                ), 
+                SizedBox(height: 20),
+                Container(
+                  height: 43.0,
+                    child: TextField(
+                      controller: city,
+                     autocorrect: true,
+                     decoration: InputDecoration(                                     
+                     labelText: 'City',
+                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                     filled: true,
+                     fillColor: Colors.white,
+                     enabledBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Colors.black, width: 1.2)
+                     )
+                    ),
+                  ),
+                ), 
+                SizedBox(height: 20),
+                Container(
+                  height: 43.0,
+                    child: TextField(
+                    controller: state,
+                     autocorrect: true,
+                     decoration: InputDecoration(                                     
+                     labelText: 'State',
+                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                     filled: true,
+                     fillColor: Colors.white,
+                     enabledBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Colors.black, width: 1.2)
+                     )
+                    ),
+                  ),
+                ), 
+                SizedBox(height: 20),
+                Container(
+                  height: 43.0,
+                    child: TextField(
+                      controller: firstname,
+                     autocorrect: true,
+                     decoration: InputDecoration(                                     
+                     labelText: 'First Name',
+                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                     filled: true,
+                     fillColor: Colors.white,
+                     enabledBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Colors.black, width: 1.2)
+                     )
+                    ),
+                  ),
+                ), 
+                SizedBox(height: 20),
+                Container(
+                  height: 43.0,
+                    child: TextField(
+                      controller: lastname,
+                     autocorrect: true,
+                     decoration: InputDecoration(                                     
+                     labelText: 'Last Name',
+                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                     filled: true,
+                     fillColor: Colors.white,
+                     enabledBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Colors.black, width: 1.2)
+                     )
+                    ),
+                  ),
+                ), 
+                SizedBox(height: 20),
+                Container(
+                  height: 43.0,
+                    child: TextField(
+                      controller: address,
+                     autocorrect: true,
+                     decoration: InputDecoration(                                     
+                     labelText: 'Address',
+                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                     filled: true,
+                     fillColor: Colors.white,
+                     enabledBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Colors.black, width: 1.2)
+                     )
+                    ),
+                  ),
+                ), 
+                SizedBox(height: 20),
+                Container(
+                  height: 43.0,
+                    child: TextField(
+                      controller: landmark,
+                     autocorrect: true,
+                     decoration: InputDecoration(                                     
+                     labelText: 'Landmark',
+                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                     filled: true,
+                     fillColor: Colors.white,
+                     enabledBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                       borderSide: BorderSide(color: Colors.black, width: 1.2)
+                     )
+                    ),
+                  ),
+                ), 
+                SizedBox(height: 20),
+                Container(
+                  height: 63.0,                        
+                  child: TextField(
+                    controller: phone_no,
+                  autocorrect: true,  
+                  keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                    enabled: true,
+                    maxLengthEnforced: true,
+                    maxLength: 10,
+                    decoration: InputDecoration(
+                    prefixText: '+91 | ',
+                    prefixStyle: TextStyle(color: Colors.black),
+                    hintText: 'Phone Number',
+                    hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                    filled: true,
+                    fillColor: Colors.white,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.2),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(color: Colors.black, width: 1.2)
+                    )
+                  ),                      
+                ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                    width: MediaQuery.of(context).size.height * 0.6,
+                    height: 42.0,
+                    child: RaisedButton(
+                      child: Text("Save Address", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),),
+                        color: Color(0xff008ecc),
+                        textColor: Colors.black,
+                        splashColor: Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            pincode.addListener(_printLatestValue);
+                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DeliveryAddress()),
+                          );
+                        },
+                      ),
+                    ) 
+              ]
+            ),
+          ),
+        ),
       ),
     );
   }
 }
+
